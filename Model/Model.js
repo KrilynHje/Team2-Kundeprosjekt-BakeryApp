@@ -24,6 +24,14 @@ const model = {
                 2,
             ],
         },
+        basket: [
+            {
+                id: 0,
+                count: 4,
+                selectedTopping: 1,
+                comment: "",
+            },
+        ],
         checkout: {
             takeout: false,
             date: "06-04-2024",
@@ -58,54 +66,190 @@ const model = {
         toppings: [
             {
                 id: 0,
-                name: "Egg og skinke",
+                name: "ost og skinke - fin baguette",
                 price: 12,
                 productType: 'bakverk'
-            }
+            },
+
+            {
+                id: 1,
+                name: "Hånpillede reker - fin baguette",
+                price: 12,
+                productType: 'bakverk'
+            },
+            {
+                id: 2,
+                name: "Roastbeef og remulade - fin baguette",
+                price: 12,
+                productType: 'bakverk'
+            },
+            {
+                id: 3,
+                name: "Roastbeeef og remulade ",
+                price: 12,
+                productType: 'bakverk'
+            },
+            {
+                id: 4,
+                name: "Eggerøree og bacon - fin baguette",
+                price: 12,
+                productType: 'bakverk'
+            },
+            {
+                id: 5,
+                name: "Eggerøre og bacon - mellomgrov baguette",
+                price: 12,
+                productType: 'bakverk'
+            },
+            {
+                id: 6,
+                name: "Kylling of dressing - fin baguette",
+                price: 12,
+                productType: 'bakverk'
+            },
+            {
+                id: 7,
+                name: "Kylling of dressing - mellomgrov baguette",
+                price: 12,
+                productType: 'bakverk'
+            },
+            {
+                id: 8,
+                name: "Brie og Spekeskinke - hel briks",
+                price: 12,
+                productType: 'bakverk'
+            },
+            {
+                id: 9,
+                name: "Brie og Spekeskinke - halv briks",
+                price: 12,
+                productType: 'bakverk'
+            },
+            {
+                id: 10,
+                name: "Ost og skinke - hel briks",
+                price: 12,
+                productType: 'bakverk'
+            },
+            {
+                id: 11,
+                name: "Fin Baguette",
+                price: 12,
+                productType: 'bakverk'
+            },
+            {
+                id: 12,
+                name: "ost og skinke - halv briks",
+                price: 12,
+                productType: 'bakverk'
+            },
+            {
+                id: 13,
+                name: "Americano",
+                price: 12,
+                productType: 'kaffe'
+            },
+            {
+                id: 13,
+                name: "Traktekaffe",
+                price: 12,
+                productType: 'kaffe'
+            },
+            {
+                id: 13,
+                name: "Espresso",
+                price: 12,
+                productType: 'kaffe'
+            },
+            {
+                id: 13,
+                name: "Flat white",
+                price: 12,
+                productType: 'kaffe'
+            },
+            {
+                id: 13,
+                name: "Caffe latte",
+                price: 12,
+                productType: 'kaffe'
+            },
+            {
+                id: 13,
+                name: "Caffe mocca",
+                price: 12,
+                productType: 'bakverk'
+            },
+
         ],
         items: [
             {
                 id: 0,
                 name: "Baguette",
                 price: 66,
-                image: "Images/baguette.png",
-                productType: 'bakverk'
+                image: "images/baguette.png",
+                productType: 'bakverk',
+                optionA: "Fin baguette",
+                optionB: "Grov baguette"
             },
             {
                 id: 1,
                 name: "Ciabatta",
                 price: 68,
-                image: "Images/ciabatta.png",
+                image: "images/ciabatta.png",
+                optionA: null,
+                optionB: null
             },
             {
                 id: 2,
-                name: "Baguette 2: Baguette harder",
+                name: "Foccaccia",
                 price: 66,
-                image: "Images/baguette.png",
+                image: "images/focaccia myk.png",
+                optionA: "Myk",
+                optionB: "Krispy"
             },
             {
                 id: 3,
-                name: "Croissant",
-                price: 66,
-                image: "Images/Croissant.png",
+                name: "Horn ost og skinke",
+                price: 75,
+                image: "images/horn.png",
+                optionA: "Helt horn",
+                optionB: "Halvt horn"
             },
             {
                 id: 4,
-                name: "Kaffe og Croissant",
+                name: "Croissant med ost og skinke",
                 price: 75,
-                image: "Images/KaffeCroissant.png",
+                image: "images/croissant.png",
+                optionA: null,
+                optionB: null
+            },
+            {
+                id: 5,
+                name: "Salat",
+                price: 75,
+                image: "images/salat.png",
+                optionA: "Uten brød",
+                optionB: "Med brød"
+            },
+            {
+                id: 6,
+                name: "Ostebriks med ost og skinke",
+                price: 75,
+                image: "images/ostebriks.png",
+                optionA: null,
+                optionB: null
+            },
+            {
+                id: 7,
+                name: "Kaffe",
+                price: 75,
+                image: "images/kaffekopp.png",
+                optionA: "Liten",
+                optionB: "Stor"
             },
         ],
         highlightedItems: [
             4
-        ],
-        basket: [
-            {
-                id: 0,
-                count: 4,
-                selectedTopping: 1,
-                comment: "",
-            },
         ],
         orders: [
             {
@@ -116,7 +260,7 @@ const model = {
                 price: 420,
                 products:
                     [
-                        { productId: 0, toppingId: 0 },
+                        { productId: 0, toppingId: 0, },
                         { productId: 3, toppingId: null },
                     ]
             },
