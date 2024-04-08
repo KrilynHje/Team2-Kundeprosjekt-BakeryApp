@@ -1,5 +1,6 @@
 const model = {
     app: {
+        currentPage: null,
         user: null,
         isOwner: false,
         categories: [
@@ -62,122 +63,83 @@ const model = {
         productTypes: [
             "Lunsj deal",
             "bakverk",
+            "kaffe",
         ],
         toppings: [
             {
                 id: 0,
-                name: "ost og skinke - fin baguette",
+                name: "Ost og skinke",
                 price: 12,
-                productType: 'bakverk'
+                productType: model.data.productTypes[1]
             },
 
             {
                 id: 1,
-                name: "Hånpillede reker - fin baguette",
+                name: "Hånpillede reker",
                 price: 12,
-                productType: 'bakverk'
+                productType: model.data.productTypes[1]
             },
             {
                 id: 2,
-                name: "Roastbeef og remulade - fin baguette",
+                name: "Roastbeef",
                 price: 12,
-                productType: 'bakverk'
+                productType: model.data.productTypes[1]
             },
             {
                 id: 3,
-                name: "Roastbeeef og remulade ",
+                name: "Eggerøree og bacon",
                 price: 12,
-                productType: 'bakverk'
+                productType: model.data.productTypes[1]
             },
             {
                 id: 4,
-                name: "Eggerøree og bacon - fin baguette",
+                name: "Kylling og dressing",
                 price: 12,
-                productType: 'bakverk'
+                productType: model.data.productTypes[1]
             },
+
             {
                 id: 5,
-                name: "Eggerøre og bacon - mellomgrov baguette",
+                name: "Brie og Spekeskinke",
                 price: 12,
-                productType: 'bakverk'
+                productType: model.data.productTypes[1]
             },
+
             {
                 id: 6,
-                name: "Kylling of dressing - fin baguette",
+                name: "Americano",
                 price: 12,
-                productType: 'bakverk'
+                productType: model.data.productTypes[2]
             },
             {
                 id: 7,
-                name: "Kylling of dressing - mellomgrov baguette",
+                name: "Traktekaffe",
                 price: 12,
-                productType: 'bakverk'
+                productType: model.data.productTypes[2]
             },
             {
                 id: 8,
-                name: "Brie og Spekeskinke - hel briks",
+                name: "Espresso",
                 price: 12,
-                productType: 'bakverk'
+                productType: model.data.productTypes[2]
             },
             {
                 id: 9,
-                name: "Brie og Spekeskinke - halv briks",
+                name: "Flat white",
                 price: 12,
-                productType: 'bakverk'
+                productType: model.data.productTypes[2]
             },
             {
                 id: 10,
-                name: "Ost og skinke - hel briks",
+                name: "Caffe latte",
                 price: 12,
-                productType: 'bakverk'
+                productType: model.data.productTypes[2]
             },
             {
                 id: 11,
-                name: "Fin Baguette",
-                price: 12,
-                productType: 'bakverk'
-            },
-            {
-                id: 12,
-                name: "ost og skinke - halv briks",
-                price: 12,
-                productType: 'bakverk'
-            },
-            {
-                id: 13,
-                name: "Americano",
-                price: 12,
-                productType: 'kaffe'
-            },
-            {
-                id: 13,
-                name: "Traktekaffe",
-                price: 12,
-                productType: 'kaffe'
-            },
-            {
-                id: 13,
-                name: "Espresso",
-                price: 12,
-                productType: 'kaffe'
-            },
-            {
-                id: 13,
-                name: "Flat white",
-                price: 12,
-                productType: 'kaffe'
-            },
-            {
-                id: 13,
-                name: "Caffe latte",
-                price: 12,
-                productType: 'kaffe'
-            },
-            {
-                id: 13,
                 name: "Caffe mocca",
                 price: 12,
-                productType: 'bakverk'
+                productType: model.data.productTypes[2]
             },
 
         ],
@@ -187,65 +149,65 @@ const model = {
                 name: "Baguette",
                 price: 66,
                 image: "images/baguette.png",
-                productType: 'bakverk',
-                optionA: "Fin baguette",
-                optionB: "Grov baguette"
+                productType: model.data.productTypes[1],
+                options: ["Fin baguette", "Grov baguette"]
             },
             {
                 id: 1,
                 name: "Ciabatta",
                 price: 68,
                 image: "images/ciabatta.png",
-                optionA: null,
-                optionB: null
+                productType: 'bakverk',
+                options: []
+
             },
             {
                 id: 2,
                 name: "Foccaccia",
                 price: 66,
                 image: "images/focaccia myk.png",
-                optionA: "Myk",
-                optionB: "Krispy"
+                productType: model.data.productTypes[1],
+                options: ["Myk", "Crispy"]
             },
             {
                 id: 3,
-                name: "Horn ost og skinke",
+                name: "Horn",
                 price: 75,
                 image: "images/horn.png",
-                optionA: "Helt horn",
-                optionB: "Halvt horn"
+                productType: model.data.productTypes[1],
+                options: ["Helt horn", "Halvt horn"]
             },
             {
                 id: 4,
-                name: "Croissant med ost og skinke",
+                name: "Croissant",
                 price: 75,
                 image: "images/croissant.png",
-                optionA: null,
-                optionB: null
+                productType: model.data.productTypes[1],
+                options: []
             },
             {
                 id: 5,
                 name: "Salat",
                 price: 75,
                 image: "images/salat.png",
-                optionA: "Uten brød",
-                optionB: "Med brød"
+                productType: model.data.productTypes[1],
+                options: ["Med brød", "Uten brød"]
             },
             {
                 id: 6,
-                name: "Ostebriks med ost og skinke",
+                name: "Ostebriks",
                 price: 75,
                 image: "images/ostebriks.png",
-                optionA: null,
-                optionB: null
+                productType: model.data.productTypes[1],
+                options: []
             },
             {
                 id: 7,
                 name: "Kaffe",
                 price: 75,
                 image: "images/kaffekopp.png",
-                optionA: "Liten",
-                optionB: "Stor"
+                productType: model.data.productTypes[2],
+                options: ["Liten", "Stor"]
             },
         ],
         highlightedItems: [
