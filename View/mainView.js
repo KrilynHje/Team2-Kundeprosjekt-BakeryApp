@@ -16,7 +16,7 @@ function toggleDropdown() {
   let arrow = document.getElementById('down-arrow')
   arrow.innerText = !dropdownIsExpanded(dropdown) ? '🞁' : '🞃'
   dropdown.style.display = dropdownIsExpanded(dropdown) ? 'none' : 'block'
-	model.input.start.isEditingFilter = false
+  model.input.start.isEditingFilter = false
 }
 
 function toggleFilterDropdown() {
