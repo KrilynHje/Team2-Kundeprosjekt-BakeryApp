@@ -28,10 +28,10 @@ const model = {
     ],
     checkout: {
       takeout: false,
-      date: '06-04-2024',
-      time: '12:00',
-      name: 'Navn Navnesen',
-      number: '12121212',
+      date: null,
+      time: null,
+      name: null,
+      number: null,
     },
     makeOrder: {
       dateInput: null,
