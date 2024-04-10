@@ -6,11 +6,18 @@ function showHeader() {
 	`
 }
 
-function toggleDropdown() {
+function dropdownIsExpanded() {
   let dropdown = document.getElementById('dropdown-content')
   if (dropdown.style.display == '') dropdown.style.display = 'none'
   let display = dropdown.style.display
-  dropdown.style.display = display == 'none' ? 'block' : 'none'
+  return display == 'block'
+}
+
+function toggleDropdown() {
+  let dropdown = document.getElementById('dropdown-content')
+	let arrow = document.getElementById("down-arrow")
+	arrow.innerText = !dropdownIsExpanded() ? "🞁" : "🞃"
+  dropdown.style.display = dropdownIsExpanded() ? 'none' : 'block'
 }
 
 function showCategorySelector() {
@@ -19,8 +26,8 @@ function showCategorySelector() {
 		<div class="dropdown">
 			<button onclick="toggleDropdown()" class="dropdown-btn">
 				<div id="dropdown-btn-content">
-					<span>${selectedCategory}</span>
-					<span id="down-arrow">🢓</span>
+					<span id="dropdown-btn-text">${selectedCategory}</span>
+					<span id="down-arrow">🞃</span>
 				</div>
 			</button>
 			<div id="dropdown-content">
