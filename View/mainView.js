@@ -1,7 +1,7 @@
 function showHeader() {
   return `
 		<div id="header">
-			
+			<img src="images/baguetteLogo2.png" />
 		</div>
 	`
 }
@@ -87,7 +87,9 @@ function mainView() {
 		<div>
 			${showHeader()}
 			${showCategoryAndFilter()}
-			${showListings()}
+			<div id="main-page">
+				${showListings()}
+			</div>
 		</div>
 	`
 }
