@@ -70,76 +70,76 @@ const model = {
                 id: 0,
                 name: "Ost og skinke",
                 price: 12,
-                productType: model.data.productTypes[1]
+                productType: 1,
             },
 
             {
                 id: 1,
                 name: "Hånpillede reker",
                 price: 12,
-                productType: model.data.productTypes[1]
+                productType: 1,
             },
             {
                 id: 2,
                 name: "Roastbeef",
                 price: 12,
-                productType: model.data.productTypes[1]
+                productType: 1,
             },
             {
                 id: 3,
                 name: "Eggerøree og bacon",
                 price: 12,
-                productType: model.data.productTypes[1]
+                productType: 1,
             },
             {
                 id: 4,
                 name: "Kylling og dressing",
                 price: 12,
-                productType: model.data.productTypes[1]
+                productType: 1,
             },
 
             {
                 id: 5,
                 name: "Brie og Spekeskinke",
                 price: 12,
-                productType: model.data.productTypes[1]
+                productType: 1,
             },
 
             {
                 id: 6,
                 name: "Americano",
                 price: 12,
-                productType: model.data.productTypes[2]
+                productType: 2,
             },
             {
                 id: 7,
                 name: "Traktekaffe",
                 price: 12,
-                productType: model.data.productTypes[2]
+                productType: 2,
             },
             {
                 id: 8,
                 name: "Espresso",
                 price: 12,
-                productType: model.data.productTypes[2]
+                productType: 2,
             },
             {
                 id: 9,
                 name: "Flat white",
                 price: 12,
-                productType: model.data.productTypes[2]
+                productType: 2,
             },
             {
                 id: 10,
                 name: "Caffe latte",
                 price: 12,
-                productType: model.data.productTypes[2]
+                productType: 2,
             },
             {
                 id: 11,
                 name: "Caffe mocca",
                 price: 12,
-                productType: model.data.productTypes[2]
+                productType: 2,
             },
 
         ],
@@ -149,7 +149,7 @@ const model = {
                 name: "Baguette",
                 price: 66,
                 image: "images/baguette.png",
-                productType: model.data.productTypes[1],
+                productType: 1,
                 options: ["Fin baguette", "Grov baguette"]
             },
             {
@@ -157,7 +157,7 @@ const model = {
                 name: "Ciabatta",
                 price: 68,
                 image: "images/ciabatta.png",
-                productType: 'bakverk',
+                productType: 1,
                 options: []
 
             },
@@ -166,7 +166,7 @@ const model = {
                 name: "Foccaccia",
                 price: 66,
                 image: "images/focaccia myk.png",
-                productType: model.data.productTypes[1],
+                productType: 1,
                 options: ["Myk", "Crispy"]
             },
             {
@@ -174,7 +174,7 @@ const model = {
                 name: "Horn",
                 price: 75,
                 image: "images/horn.png",
-                productType: model.data.productTypes[1],
+                productType: 1,
                 options: ["Helt horn", "Halvt horn"]
             },
             {
@@ -182,7 +182,7 @@ const model = {
                 name: "Croissant",
                 price: 75,
                 image: "images/croissant.png",
-                productType: model.data.productTypes[1],
+                productType: 1,
                 options: []
             },
             {
@@ -190,7 +190,7 @@ const model = {
                 name: "Salat",
                 price: 75,
                 image: "images/salat.png",
-                productType: model.data.productTypes[1],
+                productType: 1,
                 options: ["Med brød", "Uten brød"]
             },
             {
@@ -198,7 +198,7 @@ const model = {
                 name: "Ostebriks",
                 price: 75,
                 image: "images/ostebriks.png",
-                productType: model.data.productTypes[1],
+                productType: 1,
                 options: []
             },
             {
@@ -206,7 +206,7 @@ const model = {
                 name: "Kaffe",
                 price: 75,
                 image: "images/kaffekopp.png",
-                productType: model.data.productTypes[2],
+                productType: 2,
                 options: ["Liten", "Stor"]
             },
         ],

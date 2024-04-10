@@ -7,7 +7,7 @@ function updateView() {
     case 'contact':
       view.innerHTML = contactView()
       break
-    case 'main':
+    case null:
       view.innerHTML = mainView()
       break
     case 'basket':
