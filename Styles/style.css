@@ -1,6 +1,10 @@
 /*HUSK Å MELDE FRA OM ENDRINGER HER!!*/
+#app {
+	padding: 15px;
+}
+
 #filter-container {
-	padding: 10px;
+	padding-bottom: 20px;
 }
 
 .dropdown {
@@ -41,12 +45,8 @@
 	top: -30px;
 }
 
-#main-page {
-	padding: 15px;
-}
-
 #header {
-	padding: 10px;
+	padding-bottom: 10px;
 	display: grid;
 	place-items: center;
 }
