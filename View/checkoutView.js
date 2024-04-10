@@ -3,6 +3,7 @@ function checkoutView() {
     let html = ""
     html += /*HTML*/
         `
+        ${showHeader()}
         ${makeTakeoutButtons()}
         <br>
     <input oninput="inputDate(this.value)" value="${model.input.checkout.date}" type="date"/>
