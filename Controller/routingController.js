@@ -9,7 +9,7 @@ function navigateToCheckout() {
 }
 
 function navigateToMain() {
-	model.app.currentPage = "main";
+	model.app.currentPage = null;
 	updateView()
 }
 
