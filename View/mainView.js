@@ -6,18 +6,23 @@ function showHeader() {
 	`
 }
 
-function dropdownIsExpanded() {
-  let dropdown = document.getElementById('dropdown-content')
-  if (dropdown.style.display == '') dropdown.style.display = 'none'
-  let display = dropdown.style.display
-  return display == 'block'
+function dropdownIsExpanded(elem, display = 'block') {
+  if (elem.style.display == '') elem.style.display = 'none'
+  return elem.style.display == display
 }
 
 function toggleDropdown() {
   let dropdown = document.getElementById('dropdown-content')
   let arrow = document.getElementById('down-arrow')
-  arrow.innerText = !dropdownIsExpanded() ? '🞁' : '🞃'
-  dropdown.style.display = dropdownIsExpanded() ? 'none' : 'block'
+  arrow.innerText = !dropdownIsExpanded(dropdown) ? '🞁' : '🞃'
+  dropdown.style.display = dropdownIsExpanded(dropdown) ? 'none' : 'block'
+}
+
+function toggleFilterDropdown() {
+  let dropdown = document.getElementById('filter-dropdown')
+  let isExpanded = dropdownIsExpanded(dropdown, 'flex')
+  dropdown.style.display = isExpanded ? 'none' : 'flex'
+  model.input.start.isEditingFilter = !isExpanded
 }
 
 function showCategorySelector() {
@@ -33,12 +38,10 @@ function showCategorySelector() {
 			<div id="dropdown-content">
 	`
 
-  let index = 0
   model.app.categories.forEach((e) => {
     html += `
-			<div onclick="setCategory(${index})" class="dropdown-item">${e}</div>
+			<div onclick="setCategory(${model.app.categories.indexOf(e)})" class="dropdown-item">${e}</div>
 		`
-    index += 1
   })
 
   html += `
@@ -48,10 +51,44 @@ function showCategorySelector() {
   return html
 }
 
+function filterOptionButton(index, text) {
+  let checked = model.input.start.filter.includes(index)
+  return `
+		<div onclick="setFilter(${index})" class="filter-option-button">
+			<input ${checked ? 'checked' : ''} value="${index}" type="checkbox" />
+			<span>${text}</span>
+		</div>
+	`
+}
+
+function showFilterOptions() {
+  let html = ``
+  model.app.filters.forEach((e) => {
+    html += `
+			${filterOptionButton(model.app.filters.indexOf(e), e)}
+		`
+  })
+  return html
+}
+
+function showFilterButton() {
+  let html = `
+		<div>
+			<button onclick="toggleFilterDropdown()" id="filter-button">Filter</button>
+			<div id="filter-dropdown" style="${model.input.start.isEditingFilter ? 'display: flex' : 'none'}">
+				${showFilterOptions()}
+			</div>
+		</div>
+	`
+
+  return html
+}
+
 function showCategoryAndFilter() {
   return `
 		<div id="filter-container">
 			${showCategorySelector()}
+			${showFilterButton()}
 		</div>
 	`
 }
