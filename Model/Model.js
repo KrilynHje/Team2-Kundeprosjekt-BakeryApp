@@ -1,5 +1,4 @@
 const model = {
-<<<<<<< Updated upstream
   app: {
     currentPage: null,
     user: null,
@@ -16,7 +15,7 @@ const model = {
   input: {
     start: {
       category: 0,
-			isEditingFilter: false,
+      isEditingFilter: false,
       filter: [],
     },
     basket: [
@@ -33,66 +32,6 @@ const model = {
       time: '12:00',
       name: 'Navn Navnesen',
       number: '12121212',
-=======
-    app: {
-        currentPage: 'checkout',
-        user: null,
-        isOwner: false,
-        categories: [
-            "Påsmurt og Salater",
-            "Kaker",
-            "Varm drikke",
-            "Kald drikke & Mineralvann",
-        ],
-        filters: [
-            "Gluten",
-            "Skalldyr",
-            "Nøtter",
-            "Vegansk",
-        ],
-    },
-
-    input: {
-        start: {
-            category: 0,
-            filter: [
-                0,
-                2,
-            ],
-        },
-        basket: [
-            {
-                id: 0,
-                count: 4,
-                selectedTopping: 1,
-                comment: "",
-            },
-        ],
-        checkout: {
-            takeout: null,
-            date: null,
-            time: null,
-            name: null,
-            number: null,
-        },
-        makeOrder: {
-            dateInput: null,
-            timeInput: null,
-            nameInput: null,
-            numberInput: null, // 8-(
-            priceInput: null,
-            products:
-                [
-
-                ]
-        },
-        addProductInputs: {
-            name: null,
-            price: null,
-            image: null,
-            productType: null
-        }
->>>>>>> Stashed changes
     },
     makeOrder: {
       dateInput: null,

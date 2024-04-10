@@ -1,5 +1,4 @@
 /*HUSK Å MELDE FRA OM ENDRINGER HER!!*/
-<<<<<<< Updated upstream
 #filter-container {
 	padding: 10px;
 }
@@ -88,8 +87,7 @@
 .filter-option-button:hover {
 	background-color: gray;
 }
-=======
+
 .notChosen {
     opacity: 0.5;
 }
->>>>>>> Stashed changes
