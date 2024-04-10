@@ -1,5 +1,5 @@
 
-function testTest() {
+function checkoutView() {
 
 
 };
