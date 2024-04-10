@@ -15,8 +15,8 @@ function dropdownIsExpanded() {
 
 function toggleDropdown() {
   let dropdown = document.getElementById('dropdown-content')
-	let arrow = document.getElementById("down-arrow")
-	arrow.innerText = !dropdownIsExpanded() ? "🞁" : "🞃"
+  let arrow = document.getElementById('down-arrow')
+  arrow.innerText = !dropdownIsExpanded() ? '🞁' : '🞃'
   dropdown.style.display = dropdownIsExpanded() ? 'none' : 'block'
 }
 
