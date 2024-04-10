@@ -74,7 +74,7 @@ function showFilterOptions() {
 
 function showFilterButton() {
   let html = `
-		<div>
+		<div id="filter-button-container">
 			<button onclick="toggleFilterDropdown()" id="filter-button">Filter</button>
 			<div id="filter-dropdown" style="${model.input.start.isEditingFilter ? 'display: flex' : 'none'}">
 				${showFilterOptions()}
