@@ -198,6 +198,7 @@ const model = {
         category: 0,
         productType: 1,
         options: ['Fin baguette', 'Grov baguette'],
+        nonGlutenPossible: true,
       },
       {
         id: 1,
@@ -207,6 +208,7 @@ const model = {
         category: 0,
         productType: 1,
         options: [],
+        nonGlutenPossible: true,
       },
       {
         id: 2,
@@ -216,6 +218,7 @@ const model = {
         category: 0,
         productType: 1,
         options: ['Myk', 'Crispy'],
+        nonGlutenPossible: true,
       },
       {
         id: 3,
@@ -225,6 +228,7 @@ const model = {
         category: 0,
         productType: 1,
         options: ['Helt horn', 'Halvt horn'],
+        nonGlutenPossible: true,
       },
       {
         id: 4,
@@ -234,6 +238,7 @@ const model = {
         category: 0,
         productType: 1,
         options: [],
+        nonGlutenPossible: false,
       },
       {
         id: 5,
@@ -243,6 +248,7 @@ const model = {
         category: 0,
         productType: 1,
         options: ['Med brød', 'Uten brød'],
+        nonGlutenPossible: true,
       },
       {
         id: 6,
@@ -252,6 +258,7 @@ const model = {
         category: 0,
         productType: 1,
         options: [],
+        nonGlutenPossible: true,
       },
       {
         id: 7,
