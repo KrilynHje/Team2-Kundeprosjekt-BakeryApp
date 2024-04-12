@@ -151,7 +151,7 @@ const model = {
         id: 2,
         name: 'Foccaccia',
         price: 66,
-        image: 'images/focaccia myk.png',
+        image: 'images/focaccia_myk.png',
         category: 0,
         productType: 1,
         options: ['Myk', 'Crispy'],
