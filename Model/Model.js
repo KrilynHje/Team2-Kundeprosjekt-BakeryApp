@@ -82,12 +82,23 @@ const model = {
 
   data: {
     productTypes: ['Lunsj deal', 'bakverk', 'kaffe'],
+
+    //Filter icon placement: 
+    // Gluten[0]
+    // Shrimp[1]
+    // Egg[2]
+    // Dairy[3]
+    // Vegan[4]
+    // Nuts[5]
+
+
     toppings: [
       {
         id: 0,
         name: 'Ost og skinke',
         price: 12,
         productType: 1,
+        filters: [],
       },
 
       {
@@ -95,24 +106,28 @@ const model = {
         name: 'Hånpillede reker',
         price: 12,
         productType: 1,
+        filters: [1],
       },
       {
         id: 2,
         name: 'Roastbeef',
         price: 12,
         productType: 1,
+        filters: [],
       },
       {
         id: 3,
         name: 'Eggerøree og bacon',
         price: 12,
         productType: 1,
+        filters: [2],
       },
       {
         id: 4,
         name: 'Kylling og dressing',
         price: 12,
         productType: 1,
+        filters: [2, 3],
       },
 
       {
@@ -120,6 +135,7 @@ const model = {
         name: 'Brie og Spekeskinke',
         price: 12,
         productType: 1,
+        filters: [3],
       },
 
       {
@@ -127,36 +143,42 @@ const model = {
         name: 'Americano',
         price: 12,
         productType: 2,
+        filters: [],
       },
       {
         id: 7,
         name: 'Traktekaffe',
         price: 12,
         productType: 2,
+        filters: [],
       },
       {
         id: 8,
         name: 'Espresso',
         price: 12,
         productType: 2,
+        filters: [],
       },
       {
         id: 9,
         name: 'Flat white',
         price: 12,
         productType: 2,
+        filters: [3],
       },
       {
         id: 10,
         name: 'Caffe latte',
         price: 12,
         productType: 2,
+        filters: [3],
       },
       {
         id: 11,
         name: 'Caffe mocca',
         price: 12,
         productType: 2,
+        filters: [3],
       },
     ],
     items: [
@@ -168,6 +190,7 @@ const model = {
         category: 0,
         productType: 1,
         options: ['Fin baguette', 'Grov baguette'],
+        nonGlutenPossible: true,
       },
       {
         id: 1,
@@ -177,6 +200,7 @@ const model = {
         category: 0,
         productType: 1,
         options: [],
+        nonGlutenPossible: true,
       },
       {
         id: 2,
@@ -186,6 +210,7 @@ const model = {
         category: 0,
         productType: 1,
         options: ['Myk', 'Crispy'],
+        nonGlutenPossible: true,
       },
       {
         id: 3,
@@ -195,6 +220,7 @@ const model = {
         category: 0,
         productType: 1,
         options: ['Helt horn', 'Halvt horn'],
+        nonGlutenPossible: true,
       },
       {
         id: 4,
@@ -204,6 +230,7 @@ const model = {
         category: 0,
         productType: 1,
         options: [],
+        nonGlutenPossible: false,
       },
       {
         id: 5,
@@ -213,6 +240,7 @@ const model = {
         category: 0,
         productType: 1,
         options: ['Med brød', 'Uten brød'],
+        nonGlutenPossible: true,
       },
       {
         id: 6,
@@ -222,6 +250,7 @@ const model = {
         category: 0,
         productType: 1,
         options: [],
+        nonGlutenPossible: true,
       },
       {
         id: 7,
