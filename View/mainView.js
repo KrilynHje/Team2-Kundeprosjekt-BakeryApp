@@ -54,6 +54,11 @@ function showCategorySelector() {
 
 function filterOptionButton(index, text) {
   let checked = model.input.start.filter.includes(index)
+  if (text == 'Gluten') text = 'Glutenfri'
+  else if (text == 'Dairy') text = 'Laktosefri'
+  else if (text == 'Vegan') text = 'Vegansk'
+  else text = 'Uten ' + text.toLowerCase()
+
   return `
 		<div onclick="setFilter(${index})" class="filter-option-button">
 			<input ${checked ? 'checked' : ''} value="${index}" type="checkbox" />
@@ -66,7 +71,7 @@ function showFilterOptions() {
   let html = ``
   model.app.filters.forEach((e) => {
     html += `
-			${filterOptionButton(model.app.filters.indexOf(e), e)}
+			${filterOptionButton(model.app.filters.indexOf(e), e.name)}
 		`
   })
   return html
@@ -93,7 +98,6 @@ function showCategoryAndFilter() {
 		</div>
 	`
 }
-
 
 function mainView() {
   return `
