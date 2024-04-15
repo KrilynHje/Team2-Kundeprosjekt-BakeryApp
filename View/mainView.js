@@ -25,6 +25,24 @@ function toggleFilterDropdown() {
   model.input.start.isEditingFilter = !isExpanded
 }
 
+function getItem(id) {
+  return model.data.items.find((e) => e.id == id)
+}
+
+function getTopping(id) {
+  return model.data.toppings.find((e) => e.id == id)
+}
+
+function getBasketTotalPrice() {
+  let total = 0
+  model.input.basket.forEach((e) => {
+    let price = getItem(e.itemId).price
+    if (e.selectedTopping != 0) price += getTopping(e.selectedTopping).price
+    total += price * e.count
+  })
+  return total
+}
+
 function showCategorySelector() {
   let selectedCategory = model.app.categories[model.input.start.category]
   let html = `
@@ -99,6 +117,34 @@ function showCategoryAndFilter() {
 	`
 }
 
+function basketButton() {
+  let price = getBasketTotalPrice()
+  let count = 0
+  model.input.basket.forEach((e) => {
+    count += e.count
+  })
+  return `
+		<button class="button" onclick="navigateToBasket()">${count} | ${price}kr</button>
+	`
+}
+
+function checkoutButton() {
+  return `
+		<button id="checkout-button" class="button" onclick="navigateToCheckout()">Gå til kassen</button>
+	`
+}
+
+function showMiniBasket() {
+  if (model.input.basket.length == 0) return ''
+
+  return `
+		<div id="mini-basket">
+			${basketButton()}
+			${checkoutButton()}
+		</div>1
+	`
+}
+
 function mainView() {
   return `
 		<div>
@@ -107,6 +153,7 @@ function mainView() {
 			<div id="main-page">
 				${showListings()}
 			</div>
+			${showMiniBasket()}
 		</div>
 	`
 }

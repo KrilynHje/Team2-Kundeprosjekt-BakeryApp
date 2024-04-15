@@ -1,97 +1,133 @@
 /*HUSK Å MELDE FRA OM ENDRINGER HER!!*/
 #app {
-	padding: 15px;
+  padding: 15px;
 }
 
 #filter-container {
-	padding-bottom: 20px;
+  padding-bottom: 20px;
 }
 
 .dropdown {
-	width: 100%;
+  width: 100%;
 }
 
 .dropdown-btn {
-	width: 100%;
-	height: 50px;
-	border: 1px solid black;
-	background-color: white;
-	text-align: left;
+  width: 100%;
+  height: 50px;
+  border: 1px solid black;
+  background-color: white;
+  text-align: left;
 }
 
 #dropdown-btn-content {
-	display: flex;
-	justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 #dropdown-btn-text {
-	font-weight: bold;
-	font-size: 20px;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 #dropdown-content {
-	display: none;
-	z-index: 1;
-	position: absolute;
-	background-color: white;
-	width: 100%;
-	border: 1px solid black;
+  display: none;
+  z-index: 1;
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  border: 1px solid black;
 }
 
 #down-arrow {
-	font-size: 75px;
-	position: absolute;
-	right: 10px;
-	top: -30px;
+  font-size: 75px;
+  position: absolute;
+  right: 10px;
+  top: -30px;
 }
 
 #header {
-	padding-bottom: 10px;
-	display: grid;
-	place-items: center;
+  padding-bottom: 10px;
+  display: grid;
+  place-items: center;
 }
 
 #filter-button {
-	margin-top: 10px;
-	border-radius: 6px;
-	background-color: white;
-	border: 1px solid black;
-	transition: all 0.1s ease;
+  margin-top: 10px;
+  border-radius: 6px;
+  background-color: white;
+  border: 1px solid black;
+  transition: all 0.1s ease;
 }
 
 #filter-button:hover {
-	background-color: lightgray;
+  background-color: lightgray;
 }
 
 #filter-dropdown {
-	display: none;
-	background-color: white;
-	width: 100%;
-	border: 1px solid black;
-	position: absolute;
+  display: none;
+  background-color: white;
+  width: 100%;
+  border: 1px solid black;
+  position: absolute;
 }
 
 #filter-button-container {
-	position: relative;
+  position: relative;
 }
 
 .filter-option-button {
-	background-color: lightgray;
-	border-radius: 6px;
-	margin: 5px;
-	padding: 5px;
-	transition: all 0.1s ease;
-	user-select: none;
+  background-color: lightgray;
+  border-radius: 6px;
+  margin: 5px;
+  padding: 5px;
+  transition: all 0.1s ease;
+  user-select: none;
 }
 
 .filter-option-button > input {
-	pointer-events: none;
+  pointer-events: none;
 }
 
 .filter-option-button:hover {
-	background-color: gray;
+  background-color: gray;
 }
 
 .notChosen {
-    opacity: 0.5;
+  opacity: 0.5;
+}
+
+#mini-basket {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #f6f6f6;
+  box-shadow: 0 -2px 5px #d6d6d6;
+}
+
+#mini-basket > button {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.button {
+  border-radius: 0.25rem;
+  text-align: center;
+  box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border: none;
+  height: 40px;
+  padding: 10px;
+  font-weight: 400;
+}
+
+#checkout-button {
+  background-color: #c39e4e;
+  border-color: #c39e4e;
+  flex-grow: 1;
+  color: white;
+  font-weight: 700;
 }
