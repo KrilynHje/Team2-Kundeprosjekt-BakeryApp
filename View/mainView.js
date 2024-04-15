@@ -141,7 +141,7 @@ function showMiniBasket() {
 		<div id="mini-basket">
 			${basketButton()}
 			${checkoutButton()}
-		</div>1
+		</div>
 	`
 }
 
