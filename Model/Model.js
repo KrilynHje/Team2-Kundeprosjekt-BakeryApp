@@ -10,45 +10,37 @@ const model = {
       'Kald drikke & Mineralvann',
     ],
     filters: [
-
       {
         name: 'Gluten',
-        imgSrc: "images/wheat.png",
-        filledImgSrc: "images/wheat_filled.png"
-
+        imgSrc: 'images/wheat.png',
+        filledImgSrc: 'images/wheat_filled.png',
       },
       {
         name: 'Skalldyr',
-        imgSrc: "images/shrimp.png",
-        filledImgSrc: "images/shrimp_filled.png"
-
+        imgSrc: 'images/shrimp.png',
+        filledImgSrc: 'images/shrimp_filled.png',
       },
       {
         name: 'Egg',
-        imgSrc: "images/egg.png",
-        filledImgSrc: "images/egg_filled.png"
-
+        imgSrc: 'images/egg.png',
+        filledImgSrc: 'images/egg_filled.png',
       },
       {
         name: 'Dairy',
-        imgSrc: "images/dairy.png",
-        filledImgSrc: "images/dairy_filled.png"
-
+        imgSrc: 'images/dairy.png',
+        filledImgSrc: 'images/dairy_filled.png',
       },
       {
         name: 'Vegan',
-        imgSrc: "images/vegan.png",
-        filledImgSrc: "images/vegan_filled.png"
-
+        imgSrc: 'images/vegan.png',
+        filledImgSrc: 'images/vegan_filled.png',
       },
       {
         name: 'Nuts',
-        imgSrc: "images/nut.png",
-        filledImgSrc: "images/nut_filled.png"
-
+        imgSrc: 'images/nut.png',
+        filledImgSrc: 'images/nut_filled.png',
       },
     ],
-
   },
 
   input: {
