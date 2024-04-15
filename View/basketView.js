@@ -19,7 +19,7 @@ function drawCart(){
     let cartHtml = "";
 
     for (counter = 0; counter < model.input.basket.length; counter++) {
-        cartHtml += `<div class = "text">${cart[counter].id}</div>`
+        cartHtml += `<div class = "text">${model.input.basket[counter].id}</div>`
 
     }
     return cartHtml;

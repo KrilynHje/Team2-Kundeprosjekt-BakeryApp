@@ -51,7 +51,7 @@ const model = {
     },
     basket: [
       {
-        id: 0,
+        itemId: 0,
         count: 4,
         selectedTopping: 1,
         comment: '',
