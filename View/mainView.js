@@ -147,13 +147,11 @@ function showMiniBasket() {
 
 function mainView() {
   return `
-		<div>
+		<div class="page">
 			${showHeader()}
 			${showCategoryAndFilter()}
-			<div id="main-page">
-				${showListings()}
-			</div>
-			${showMiniBasket()}
+			${showListings()}
 		</div>
+		${showMiniBasket()}
 	`
 }
