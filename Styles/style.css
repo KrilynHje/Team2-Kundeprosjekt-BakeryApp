@@ -131,3 +131,7 @@
   color: white;
   font-weight: 700;
 }
+
+.highlighted {
+	background-color: yellow;
+  }
