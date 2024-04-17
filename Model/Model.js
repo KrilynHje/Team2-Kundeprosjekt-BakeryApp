@@ -3,6 +3,7 @@ const model = {
     currentPage: null,
     user: null,
     isOwner: false,
+    error: null,
     categories: [
       'Påsmurt og Salater',
       'Kaker',
@@ -44,6 +45,18 @@ const model = {
   },
 
   input: {
+    menu: {
+      isRegistering: false,
+      isLogin: false,
+      register: {
+        username: null,
+        password: null,
+      },
+      login: {
+        username: null,
+        password: null,
+      },
+    },
     start: {
       category: 0,
       isEditingFilter: false,
@@ -83,14 +96,13 @@ const model = {
   data: {
     productTypes: ['Lunsj deal', 'bakverk', 'kaffe'],
 
-    //Filter icon placement: 
+    //Filter icon placement:
     // Gluten[0]
     // Shrimp[1]
     // Egg[2]
     // Dairy[3]
     // Vegan[4]
     // Nuts[5]
-
 
     toppings: [
       {
@@ -276,5 +288,6 @@ const model = {
         ],
       },
     ],
+    users: [],
   },
 }

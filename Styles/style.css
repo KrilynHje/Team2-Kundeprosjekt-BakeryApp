@@ -1,6 +1,6 @@
 /*HUSK Å MELDE FRA OM ENDRINGER HER!!*/
 .page {
-	padding: 15px;
+  padding: 15px;
 }
 
 #filter-container {
@@ -48,7 +48,24 @@
 #header {
   padding-bottom: 10px;
   display: grid;
+  grid-template-columns: repeat(3, auto);
   place-items: center;
+}
+
+#header > img {
+  grid-column-start: 2;
+  justify-self: center;
+}
+
+#header-menu {
+  --size: 25px;
+  grid-column-start: 3;
+  justify-self: end;
+  border-radius: 25px;
+  height: var(--size);
+  width: var(--size);
+  background-color: black;
+  cursor: pointer;
 }
 
 #filter-button {
@@ -124,7 +141,12 @@
   font-weight: 400;
 }
 
-#checkout-button {
+.button:disabled {
+	color: grey;
+	background-color: white;
+}
+
+.checkout-button {
   background-color: #c39e4e;
   border-color: #c39e4e;
   flex-grow: 1;
@@ -133,5 +155,61 @@
 }
 
 .highlighted {
-	background-color: yellow;
-  }
+  background-color: yellow;
+}
+
+#menu {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  top: 0;
+}
+
+.menu-item {
+  border-top: 1px solid grey;
+  padding: 30px;
+  font-weight: 500;
+}
+
+#menu-items:last-child {
+  border-bottom: 1px solid grey;
+}
+
+#menu-header-container {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.menu-header-item {
+  font-size: 36px;
+  font-weight: 600;
+  padding: 15px;
+}
+
+.input-container {
+	margin-bottom: 15px;
+}
+
+.input-container > p {
+	margin-bottom: 0;
+}
+
+.input-box {
+	border-radius: 5px;
+  border: 2px solid gray;
+  padding: 5px;
+	width: 100%;
+}
+
+.input-box:focus-visible {
+	outline: none;
+	outline-color: #c39e4e;
+  border-color: #c39e4e;
+}
+
+#error-user {
+	color: red;
+	font-weight: 600;
+}
