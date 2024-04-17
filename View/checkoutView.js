@@ -5,9 +5,9 @@ function checkoutView() {
         `
         ${showHeader()}
         ${makeTakeoutButtons()}
-        <br>
+        <br> 
     <input oninput="inputDate(this.value)" value="${model.input.checkout.date}" type="date"/>
-    <input oninput="inputTime(this.value)" value="${model.input.checkout.time}" type="time"/>
+    <input onchange="inputTime(this.value)" value="${model.input.checkout.time}" type="time"/>
     <br>
     <input onchange="nameInput(this.value)" placeholder="Navn Etternavn" value="${model.input.checkout.name ?? ''}"  type="text" >
     <input onchange="numberInput(this.value)" placeholder="telefon nummer"value="${model.input.checkout.number}" type="number">
@@ -51,8 +51,12 @@ function makeTakeoutButtons() {
     }
 
     return html
+
 }
 
+
+
+//
 
 // function drawToppings() {
 //     let html = ''
