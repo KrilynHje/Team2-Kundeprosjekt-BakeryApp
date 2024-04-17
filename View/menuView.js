@@ -1,32 +1,101 @@
 const menuItems = [
   {
     name: 'Gå til startsiden',
+    altName: null,
+    alt: false,
     dataClick: navigateToMain,
+    altDataClick: null,
   },
   {
     name: 'Login',
+    altName: 'Logg ut',
+    alt: false,
     dataClick: toggleLogin,
+    altDataClick: logout,
   },
   {
     name: 'Registrer',
+    altName: null,
+    alt: false,
     dataClick: toggleRegistration,
+    altDataClick: null,
   },
 ]
 
 function showMenuItems() {
   let html = `<div id="menu-items">`
   menuItems.forEach((e) => {
+    if (e.name == 'Login' && model.app.user != null) e.alt = true
+    else if (e.name == 'Login') e.alt = false
     html += `
-			<div class="menu-item" data-click="${e.dataClick}">${e.name}</div>
+			<div class="menu-item" data-click="${e.alt ? e.altDataClick : e.dataClick}">${e.alt ? e.altName : e.name}</div>
 		`
   })
   html += `</div>`
   return html
 }
 
-function showLogin() {}
+function resolveDeepValue(obj, path) {
+  for (var i = 0, path = path.split('.'), len = path.length; i < len; i++) {
+    obj = obj[path[i]]
+  }
+  return obj
+}
 
-function showRegister() {}
+function showInput(label, type, field) {
+  let withoutModel = field.split('.')
+  withoutModel.shift()
+  withoutModel = withoutModel.join('.')
+  let value = resolveDeepValue(model, withoutModel)
+  value = value != null ? value : ''
+  return `
+		<div class="input-container">
+			<p>${label}</p>
+			<input onchange="${field} = this.value; updateView()" value="${value}" class="input-box" type="${type}" placeholder="${label}" />
+		</div>
+	`
+}
+
+function showButton(text, field1, field2, onclick) {
+  return `
+		<button onclick="${onclick}" ${field1 == null || field2 == null ? 'disabled' : ''} style="width: 100%;" class="checkout-button button">${text}</button>
+	`
+}
+
+function showUserError() {
+  if (model.app.error == null) return ``
+  return `
+		<p id="error-user">${model.app.error}</p>
+	`
+}
+
+function showLogin() {
+  let html = `<div class="page">`
+
+  html += `
+		${showInput('Brukernavn', 'text', 'model.input.menu.login.username')}
+		${showInput('Passord', 'password', 'model.input.menu.login.password')}
+		${showButton('Login', model.input.menu.login.username, model.input.menu.login.password, 'login()')}
+		${showUserError()}
+	`
+
+  html += `</div>`
+  return html
+}
+
+function showRegister() {
+  let html = `<div class="page">`
+
+  html += `
+		${showInput('Brukernavn', 'text', 'model.input.menu.register.username')}
+		${showInput('Passord', 'password', 'model.input.menu.register.password')}
+		${showButton('Registrer', model.input.menu.register.username, model.input.menu.register.password, 'register()')}
+		${showUserError()}
+	`
+
+  html += `</div>`
+  return html
+}
 
 function showExit() {
   let html = `
@@ -62,7 +131,12 @@ function showMenu() {
   waitForElement('#menu-items').then((elem) => {
     elem.addEventListener('click', (e) => {
       if (e.target.classList.contains('menu-item')) {
-        menuItems.find((f) => f.name == e.target.innerText).dataClick()
+        let elem = menuItems.find(
+          (f) =>
+            f.name == e.target.innerText || f.altName == e.target.innerText,
+        )
+        if (elem.alt) elem.altDataClick()
+        else elem.dataClick()
       }
     })
   })

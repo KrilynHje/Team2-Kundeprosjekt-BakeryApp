@@ -131,7 +131,7 @@ function basketButton() {
 
 function checkoutButton() {
   return `
-		<button id="checkout-button" class="button" onclick="navigateToCheckout()">Gå til kassen</button>
+		<button class="checkout-button button" onclick="navigateToCheckout()">Gå til kassen</button>
 	`
 }
 
