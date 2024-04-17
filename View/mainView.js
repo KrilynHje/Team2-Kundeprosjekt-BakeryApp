@@ -2,6 +2,7 @@ function showHeader() {
   return `
 		<div id="header">
 			<img src="images/baguetteLogo2.png" />
+		  <div onclick="toggleMenu()" id="header-menu"></div>
 		</div>
 	`
 }
