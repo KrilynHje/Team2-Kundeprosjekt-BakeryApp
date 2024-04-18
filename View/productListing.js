@@ -48,13 +48,13 @@ function showListings() {
 
 function listing(item) {
   const highlightedClass = model.data.highlightedItems.includes(item.id) ? 'highlighted' : '';
+  const ukensTilbudBox = model.data.highlightedItems.includes(item.id) ? '<div class="ukens-tilbud">Ukens Tilbud</div>' : '';
   
   return `
-    <div id="item-${item.id}" class="${highlightedClass}">
-      <p>Name: ${item.name}</p>
-      <p>Price: ${item.price}</p>
+    <div id="item-${item.id}" class="item-container ${highlightedClass}">
       <img src="${item.image}" />
-      <p>Options: ${item.options}</p>
+      ${ukensTilbudBox}
+      <p>${item.name} fra ${item.price} kr per stykk</p>
       <br>
     </div>
   `;

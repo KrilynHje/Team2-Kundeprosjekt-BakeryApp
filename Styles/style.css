@@ -154,10 +154,6 @@
   font-weight: 700;
 }
 
-.highlighted {
-  background-color: yellow;
-}
-
 #menu {
   position: absolute;
   width: 100%;
@@ -212,4 +208,19 @@
 #error-user {
 	color: red;
 	font-weight: 600;
+}
+
+.item-container {
+  position: relative;
+}
+
+.ukens-tilbud {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(195, 158, 78, 0.3);
+  color: white;
+  padding: 2px 5px;
+  font-weight: bold;
+  height: 30px;
 }
