@@ -69,6 +69,18 @@ const model = {
         selectedTopping: 1,
         comment: '',
       },
+      {
+        itemId: 5,
+        count: 4,
+        selectedTopping: 1,
+        comment: '',
+      },
+      {
+        itemId: 3,
+        count: 4,
+        selectedTopping: 1,
+        comment: '',
+      },
     ],
     checkout: {
       takeout: false,
