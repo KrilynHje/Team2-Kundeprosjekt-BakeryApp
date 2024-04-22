@@ -229,13 +229,24 @@
   margin: 15px;
   display: grid;
   justify-content: center;
-  justify-content: space-around;
+  
 }
 
-.checkout-page-align {
-  display: flex;
-  margin-top: 15px;
+.checkout-page-align-grid {
+  display: grid;
+  margin-top: 10px;
   justify-content: center;
+  
+}
+.checkout-page-align-flex {
+  display: flex ;
+  margin-top: 10px;
+  justify-content: center;
+  
+}
+.checkout-page-align > input{
+margin: 5px; 
+
 }
 
 .takeout-button {
