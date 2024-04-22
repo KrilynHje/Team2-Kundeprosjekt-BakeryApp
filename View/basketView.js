@@ -19,8 +19,18 @@ function drawCart(){
     let cartHtml = "";
 
     for (counter = 0; counter < model.input.basket.length; counter++) {
-        cartHtml += `<div class = "text">${model.input.basket[counter].id}</div>`
+        
+        let item =  dummy(model.input.basket[counter].itemId);
+
+        cartHtml += `<div>Navn: ${item.name} </div>`
 
     }
+
+    
     return cartHtml;
+
+} function dummy(element){
+
+   return model.data.items.find((pram) =>  element == pram.id);
+
 }
