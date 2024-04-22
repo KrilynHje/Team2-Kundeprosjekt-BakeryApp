@@ -5,6 +5,7 @@ const menuItems = [
     alt: false,
     dataClick: navigateToMain,
     altDataClick: null,
+    needsAdmin: false,
   },
   {
     name: 'Login',
@@ -12,6 +13,7 @@ const menuItems = [
     alt: false,
     dataClick: toggleLogin,
     altDataClick: logout,
+    needsAdmin: false,
   },
   {
     name: 'Registrer',
@@ -19,6 +21,15 @@ const menuItems = [
     alt: false,
     dataClick: toggleRegistration,
     altDataClick: null,
+    needsAdmin: false,
+  },
+  {
+    name: 'Rediger produkter',
+    altName: null,
+    alt: false,
+    dataClick: navigateToEditProducts,
+    altDataClick: null,
+    needsAdmin: true,
   },
 ]
 
@@ -27,7 +38,12 @@ function showMenuItems() {
   menuItems.forEach((e) => {
     if (e.name == 'Login' && model.app.user != null) e.alt = true
     else if (e.name == 'Login') e.alt = false
-    html += `
+
+    if (
+      (e.needsAdmin && model.app.user && getUser(model.app.user).admin) ||
+      !e.needsAdmin
+    )
+      html += `
 			<div class="menu-item" data-click="${e.alt ? e.altDataClick : e.dataClick}">${e.alt ? e.altName : e.name}</div>
 		`
   })

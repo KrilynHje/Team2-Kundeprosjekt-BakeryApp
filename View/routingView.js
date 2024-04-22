@@ -16,5 +16,8 @@ function updateView() {
 		case 'menu':
 			view.innerHTML = showMenu()
 			break
+		case 'editProducts':
+			view.innerHTML = showEditProducts()
+			break
   }
 }

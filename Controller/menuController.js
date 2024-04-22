@@ -17,6 +17,11 @@ function toggleLogin() {
   updateView()
 }
 
+function getUser(user) {
+  if (!user) return null
+  return model.data.users.find((e) => e.username == user)
+}
+
 function menuBack() {
   model.input.menu.isRegistering = false
   model.input.menu.isLogin = false
@@ -57,8 +62,8 @@ function login() {
 }
 
 function logout() {
-	model.app.user = null
-	navigateToMain()
+  model.app.user = null
+  navigateToMain()
 }
 
 function register() {
@@ -83,6 +88,7 @@ function register() {
   let user = {
     username: username,
     password: password,
+    admin: false,
   }
 
   model.data.users.push(user)
