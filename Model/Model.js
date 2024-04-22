@@ -1,8 +1,7 @@
 const model = {
   app: {
     currentPage: null,
-    user: null,
-    isOwner: false,
+    user: 'pierre',
     error: null,
     categories: [
       'Påsmurt og Salater',
@@ -288,6 +287,12 @@ const model = {
         ],
       },
     ],
-    users: [],
+    users: [
+			{
+				username: "pierre",
+				password: "baguette",
+				admin: true,
+			}
+		],
   },
 }
