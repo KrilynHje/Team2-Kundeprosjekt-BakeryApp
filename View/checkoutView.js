@@ -5,16 +5,34 @@ function checkoutView() {
     let html = ""
     html += /*HTML*/
         `
+       
+        <div class="page">
+
         ${showHeader()}
+        <div class="checkout-Container">
+        <div class="checkout-page-align-flex">
         ${makeTakeoutButtons()}
+        </div>
         <br>
+        <div class="checkout-page-align-grid">
+        <p>Vennligst velg dato og hentetidspunkt</p>
+        </div>
+        <div class="checkout-page-align-flex">
     <input oninput="inputDate(this.value)" value="${model.input.checkout.date}" type="date"/>
-    <input oninput="inputTime(this.value)" value="${model.input.checkout.time}" type="time"/>
+    <input onchange="inputTime(this.value)" value="${model.input.checkout.time}" type="time" />
+    </div>
+    </div>
     <br>
+    <div class="checkout-page-align-grid">
     <input onchange="nameInput(this.value)" placeholder="Navn Etternavn" value="${model.input.checkout.name ?? ''}"  type="text" >
-    <input onchange="numberInput(this.value)" placeholder="telefon nummer"value="${model.input.checkout.number}" type="number">
-    <br>
+    <input onchange="numberInput(this.value)" placeholder="Telefon nummer"value="${model.input.checkout.number}" type="number">
+    </div>
+    
+    <div class="checkout-page-align-grid">
     ${makeConfirmButton()}
+    
+    </div>
+    </div>
     `
     return html
 };
@@ -24,17 +42,17 @@ function checkInputs() {
 }
 
 
+
 function makeConfirmButton() {
     if (checkInputs())
-        return `<button>Bekreft</button>`
-    return `<button disabled="true">Bekreft</button>
-    `
+        return `<button class="checkout-button">Bekreft</button>`
+    return `<button disabled="true">Bekreft</button>`
 }
 
-function makeRegisterUserButton() {
+function makeRegisterNewUserButton() {
     if (checkInputs())
-        return `<button onclick="registerUserBtn">Registrer Bruker</button>`
-    
+        return `<button class="checkout-button">Bekreft</button>`
+    return `<button disabled="true">Bekreft</button>`
 }
 
 function makeTakeoutButtons() {
@@ -48,14 +66,14 @@ function makeTakeoutButtons() {
     }
     else if (model.input.checkout.takeout) {
         html += `
-        <button onclick="checkIfTakeout(true)">Ta med </button>
+        <button class="takeout-button" onclick="checkIfTakeout(true)">Ta med </button>
         <button class="notChosen" onclick="checkIfTakeout(false)">Spise Inne</button>
         `
     }
     else if (!model.input.checkout.takeout) {
         html += `
         <button class="notChosen" onclick="checkIfTakeout(true)">Ta med </button>
-        <button onclick="checkIfTakeout(false)">Spise Inne</button>
+        <button class="takeout-button" onclick="checkIfTakeout(false)">Spise Inne</button>
         `
     }
 
@@ -63,13 +81,12 @@ function makeTakeoutButtons() {
 }
 
 
-// function drawToppings() {
-//     let html = ''
-//     for (let i = 0; i < model.data.toppings.length; i++) {
-//         html += `<div>${model.data.toppings[i].name}</div>`
-//     }
-//     return html
-// }
+
+
+
+
+
+
 
 
 

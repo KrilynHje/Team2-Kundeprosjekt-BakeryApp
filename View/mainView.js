@@ -2,6 +2,7 @@ function showHeader() {
   return `
 		<div id="header">
 			<img src="images/baguetteLogo2.png" />
+		  <div onclick="toggleMenu()" id="header-menu"></div>
 		</div>
 	`
 }
@@ -16,7 +17,6 @@ function toggleDropdown() {
   let arrow = document.getElementById('down-arrow')
   arrow.innerText = !dropdownIsExpanded(dropdown) ? '🞁' : '🞃'
   dropdown.style.display = dropdownIsExpanded(dropdown) ? 'none' : 'block'
-  model.input.start.isEditingFilter = false
 }
 
 function toggleFilterDropdown() {
@@ -24,6 +24,24 @@ function toggleFilterDropdown() {
   let isExpanded = dropdownIsExpanded(dropdown, 'flex')
   dropdown.style.display = isExpanded ? 'none' : 'flex'
   model.input.start.isEditingFilter = !isExpanded
+}
+
+function getItem(id) {
+  return model.data.items.find((e) => e.id == id)
+}
+
+function getTopping(id) {
+  return model.data.toppings.find((e) => e.id == id)
+}
+
+function getBasketTotalPrice() {
+  let total = 0
+  model.input.basket.forEach((e) => {
+    let price = getItem(e.itemId).price
+    if (e.selectedTopping != 0) price += getTopping(e.selectedTopping).price
+    total += price * e.count
+  })
+  return total
 }
 
 function showCategorySelector() {
@@ -54,6 +72,11 @@ function showCategorySelector() {
 
 function filterOptionButton(index, text) {
   let checked = model.input.start.filter.includes(index)
+  if (text == 'Gluten') text = 'Glutenfri'
+  else if (text == 'Dairy') text = 'Laktosefri'
+  else if (text == 'Vegan') text = 'Vegansk'
+  else text = 'Uten ' + text.toLowerCase()
+
   return `
 		<div onclick="setFilter(${index})" class="filter-option-button">
 			<input ${checked ? 'checked' : ''} value="${index}" type="checkbox" />
@@ -66,7 +89,7 @@ function showFilterOptions() {
   let html = ``
   model.app.filters.forEach((e) => {
     html += `
-			${filterOptionButton(model.app.filters.indexOf(e), e)}
+			${filterOptionButton(model.app.filters.indexOf(e), e.name)}
 		`
   })
   return html
@@ -76,6 +99,7 @@ function showFilterButton() {
   let html = `
 		<div id="filter-button-container">
 			<button onclick="toggleFilterDropdown()" id="filter-button">Filter</button>
+			<button onclick="navigateToBasket()" id="filter-button">Basket</button>
 			<div id="filter-dropdown" style="${model.input.start.isEditingFilter ? 'display: flex' : 'none'}">
 				${showFilterOptions()}
 			</div>
@@ -94,40 +118,41 @@ function showCategoryAndFilter() {
 	`
 }
 
-function showListings() {
-  let html = ``
-  model.data.items.forEach((e) => {
-    if (e.category == model.input.start.category) html += listing(e)
+function basketButton() {
+  let price = getBasketTotalPrice()
+  let count = 0
+  model.input.basket.forEach((e) => {
+    count += e.count
   })
-
-  if (html == ``) {
-    html += `
-			<span>
-				Ingen produkter funnet
-			</span>
-		`
-  }
-
-  return html
+  return `
+		<button class="button" onclick="navigateToBasket()">${count} | ${price}kr</button>
+	`
 }
 
-function listing(item) {
+function checkoutButton() {
   return `
-		<div>
-			<p>Name: ${item.name}</p>
-			<p>Price: ${item.price}</p>
+		<button class="checkout-button button" onclick="navigateToCheckout()">Gå til kassen</button>
+	`
+}
+
+function showMiniBasket() {
+  if (model.input.basket.length == 0) return ''
+
+  return `
+		<div id="mini-basket">
+			${basketButton()}
+			${checkoutButton()}
 		</div>
 	`
 }
 
 function mainView() {
   return `
-		<div>
+		<div class="page">
 			${showHeader()}
 			${showCategoryAndFilter()}
-			<div id="main-page">
-				${showListings()}
-			</div>
+			${showListings()}
 		</div>
+		${showMiniBasket()}
 	`
 }
