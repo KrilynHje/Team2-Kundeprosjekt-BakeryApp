@@ -23,3 +23,8 @@ function numberInput(input) {
     model.input.checkout.number = input
     updateView()
 }
+
+function registerUserBtn(){
+    updateView()
+
+}

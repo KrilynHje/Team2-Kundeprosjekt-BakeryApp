@@ -1,4 +1,6 @@
 
+confirmBtnPressed= false; 
+
 function checkoutView() {
     let html = ""
     html += /*HTML*/
@@ -25,7 +27,14 @@ function checkInputs() {
 function makeConfirmButton() {
     if (checkInputs())
         return `<button>Bekreft</button>`
-    return `<button disabled="true">Bekreft</button>`
+    return `<button disabled="true">Bekreft</button>
+    `
+}
+
+function makeRegisterUserButton() {
+    if (checkInputs())
+        return `<button onclick="registerUserBtn">Registrer Bruker</button>`
+    
 }
 
 function makeTakeoutButtons() {

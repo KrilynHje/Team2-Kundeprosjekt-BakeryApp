@@ -17,3 +17,7 @@ function navigateToContact() {
 	model.app.currentPage = "contact";
 	updateView()
 }
+function navigateToOrdrerConformed() {
+	model.app.currentPage = "Orderconfirmation";
+	updateView()
+}

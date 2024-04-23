@@ -13,5 +13,8 @@ function updateView() {
     case 'basket':
       view.innerHTML = basketView()
       break
+    case 'Orderconfirmation':
+      view.innerHTML = orderConfirmedView()
+      break
   }
 }
