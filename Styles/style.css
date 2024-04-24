@@ -212,17 +212,19 @@
 
 .item-container {
   position: relative;
+  width: 350px;
 }
 
 .ukens-tilbud {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgba(195, 158, 78, 0.3);
+  background-color: rgba(195, 158, 78, 0.5);
   color: white;
   padding: 2px 5px;
-  font-weight: bold;
+  font-weight: thin;
   height: 30px;
+  width: 350px;
 }
 
 .checkout-Container {
@@ -254,4 +256,9 @@ margin: 5px;
   border-color: #c39e4e;
   color: white;
   font-weight: 700;
+}
+
+.image-container {
+  width: 350px;
+  height: 230px;
 }

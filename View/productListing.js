@@ -52,9 +52,12 @@ function listing(item) {
   
   return `
     <div id="item-${item.id}" class="item-container ${highlightedClass}">
-      <img src="${item.image}" />
+      <img src="${item.image}" class="image-container" />
       ${ukensTilbudBox}
-      <p>${item.name} fra ${item.price} kr per stykk</p>
+      <p style="display: flex; justify-content: space-between;">
+        <span>${item.name}</span>
+        <span>fra ${item.price} kr per stykk</span>
+      </p>
       <br>
     </div>
   `;
