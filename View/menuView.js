@@ -23,14 +23,14 @@ const menuItems = [
     altDataClick: null,
     needsAdmin: false,
   },
-  {
-    name: 'Rediger produkter',
-    altName: null,
-    alt: false,
-    dataClick: navigateToEditProducts,
-    altDataClick: null,
-    needsAdmin: true,
-  },
+  // {
+  //   name: 'Rediger produkter',
+  //   altName: null,
+  //   alt: false,
+  //   dataClick: navigateToEditProducts,
+  //   altDataClick: null,
+  //   needsAdmin: true,
+  // },
 ]
 
 function showMenuItems() {
