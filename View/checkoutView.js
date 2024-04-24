@@ -1,5 +1,5 @@
 
-confirmBtnPressed= false; 
+
 
 function checkoutView() {
     let html = ""
@@ -35,7 +35,8 @@ function checkoutView() {
     </div>
     `
     return html
-};
+}
+
 
 function checkInputs() {
     return model.input.checkout.name != null && model.input.checkout.number != null
@@ -45,15 +46,13 @@ function checkInputs() {
 
 function makeConfirmButton() {
     if (checkInputs())
-        return `<button class="checkout-button">Bekreft</button>`
+        return `<button class="checkout-button" onclick="navigateToOrdrerConformed()">Bekreft</button>`
     return `<button disabled="true">Bekreft</button>`
 }
 
-function makeRegisterNewUserButton() {
-    if (checkInputs())
-        return `<button class="checkout-button">Bekreft</button>`
-    return `<button disabled="true">Bekreft</button>`
-}
+
+
+
 
 function makeTakeoutButtons() {
     let html = ""
