@@ -36,7 +36,3 @@ function numberInput(input) {
     updateView()
 }
 
-function registerUserBtn(){
-    updateView()
-
-}

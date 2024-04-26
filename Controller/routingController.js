@@ -18,6 +18,10 @@ function navigateToContact() {
 	updateView()
 }
 function navigateToOrdrerConformed() {
-	model.app.currentPage = "Orderconfirmation";
+	model.app.currentPage = "orderconfirmation";
+	updateView()
+}
+function navigateToContactInfo() {
+	model.app.currentPage = "contactinfo";
 	updateView()
 }

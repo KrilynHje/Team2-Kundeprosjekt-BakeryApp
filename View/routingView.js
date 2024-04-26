@@ -19,8 +19,11 @@ function updateView() {
 		case 'editProducts':
 			view.innerHTML = showEditProducts()
 			break
-    case 'Orderconfirmation':
+    case 'orderconfirmation':
       view.innerHTML = orderConfirmedView()
+      break
+    case 'contactinfo':
+      view.innerHTML = contactInfoView()
       break
   }
 }

@@ -301,9 +301,16 @@ const model = {
     ],
     users: [
 			{
-				username: "pierre",
+				username: "45852605",
 				password: "baguette",
 				admin: true,
+        name:"Pierre Baguette", 
+			},
+			{
+				username: "99845408",
+				password: "baguette",
+				admin: false,
+        name:"Bruce Wayne", 
 			}
 		],
   },

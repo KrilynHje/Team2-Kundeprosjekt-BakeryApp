@@ -1,6 +1,3 @@
-
-
-
 function checkoutView() {
     let html = ""
     html += /*HTML*/
