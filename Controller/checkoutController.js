@@ -1,6 +1,7 @@
 function inputDate(input) {
     model.input.checkout.date = input
     console.log(input)
+    validateDateInput(input)
 }
 
 function inputTime(input) {
@@ -20,6 +21,29 @@ function validateTimeInput(time) {
     }
 }
 
+function daysToSeconds(days) {
+    return days * 60 * 60 * 24
+}
+
+function validateDateInput(date) {
+    let inputDate = new Date(date);
+
+    if (isNaN(inputDate)) {
+        alert("Vennligst velg en dato for levering.");
+        model.input.checkout.date = null;
+        return false;
+    }
+
+    if (inputDate.getDay() == 0) {
+        alert("Stengt på søndager.");
+        model.input.checkout.date = null; 
+        return false;
+    }
+
+    return true;
+}
+
+
 function checkIfTakeout(isTakeout) {
     model.input.checkout.takeout = isTakeout
     updateView()
@@ -36,3 +60,4 @@ function numberInput(input) {
     updateView()
 }
 
+var today = new Date().toISOString().split('T')[0];

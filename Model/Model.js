@@ -1,6 +1,6 @@
 const model = {
   app: {
-    currentPage: null,
+    currentPage: 'checkout',
     user: 'pierre',
     error: null,
     categories: [
@@ -44,11 +44,13 @@ const model = {
   },
 
   input: {
+    currentOrder: null,
     menu: {
       isRegistering: false,
       isLogin: false,
       register: {
         username: null,
+        name: null,
         password: null,
       },
       login: {
@@ -288,14 +290,31 @@ const model = {
     highlightedItems: [4],
     orders: [
       {
+        orderId: 0,
         date: '20-04-2024',
         time: '13:37',
         name: 'Marius Aalto',
         number: '69696969', // 8-)
         price: 420,
         products: [
-          { productId: 0, toppingId: 0 },
-          { productId: 3, toppingId: null },
+          {
+            itemId: 0,
+            count: 4,
+            selectedTopping: 1,
+            comment: '',
+          },
+          {
+            itemId: 5,
+            count: 4,
+            selectedTopping: 1,
+            comment: '',
+          },
+          {
+            itemId: 3,
+            count: 4,
+            selectedTopping: 1,
+            comment: '',
+          },
         ],
       },
     ],

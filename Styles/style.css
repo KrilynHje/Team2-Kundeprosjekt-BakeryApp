@@ -86,7 +86,7 @@
   width: 100%;
   border: 1px solid black;
   position: absolute;
-	z-index: 10;
+  z-index: 10;
 }
 
 #filter-button-container {
@@ -232,22 +232,24 @@
   margin: 15px;
   display: grid;
   justify-content: center;
-  
+
 }
 
 .checkout-page-align-grid {
   display: grid;
   margin-top: 10px;
   justify-content: center;
-  
+
 }
+
 .checkout-page-align-flex {
-  display: flex ;
+  display: flex;
   margin-top: 10px;
-  justify-content: center; 
+  justify-content: center;
 }
-.checkout-page-align > input{
-margin: 5px; 
+
+.checkout-page-align>input {
+  margin: 5px;
 }
 
 .takeout-button {
@@ -265,25 +267,31 @@ margin: 5px;
 
 .light-grey-rectangle {
   background-color: #D3D3D3;
-  width: 200px; 
-  height: 100px; 
-  margin: 10px; 
- }
 
- .order-containder
-  {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    min-height: 100vh; /* Ensures the container takes at least the full viewport height */
-    padding-bottom: 20px; /* Adds some space below the rectangle for more content */
-   }
-
-   .register-button-container {
-    position: fixed;
-    bottom: 20px; /*Adjust height from bottom of the page*/
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center; 
+  margin: 10px;
 }
- 
+
+.order-containder {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 100vh;
+  /* Ensures the container takes at least the full viewport height */
+  padding-bottom: 20px;
+  /* Adds some space below the rectangle for more content */
+}
+
+.register-button-container {
+  position: fixed;
+  bottom: 20px;
+  /*Adjust height from bottom of the page*/
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.order-confirmed-display {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 12px;
+}

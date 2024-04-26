@@ -1,3 +1,13 @@
+function checkSunday(){
+
+    if (futureDate.getDay() === 0) {
+        return true;
+    } else {
+        return false;
+    }
+
+}
+var today = new Date().toISOString().split('T')[0];
 function checkoutView() {
     let html = ""
     html += /*HTML*/
@@ -15,7 +25,7 @@ function checkoutView() {
         <p>Vennligst velg dato og hentetidspunkt</p>
         </div>
         <div class="checkout-page-align-flex">
-    <input oninput="inputDate(this.value)" value="${model.input.checkout.date}" type="date"/>
+     <input oninput="inputDate(this.value)" value="${model.input.checkout.date}" type="date" min="${today}"/>
     <input onchange="inputTime(this.value)" value="${model.input.checkout.time}" type="time" />
     </div>
     </div>
@@ -36,17 +46,43 @@ function checkoutView() {
 
 
 function checkInputs() {
-    return model.input.checkout.name != null && model.input.checkout.number != null
+    return model.input.checkout.name != null && 
+        model.input.checkout.number != null && 
+        model.input.checkout.date != null &&
+        model.input.checkout.time != null 
 }
 
 
 
 function makeConfirmButton() {
     if (checkInputs())
-        return `<button class="checkout-button" onclick="navigateToOrdrerConformed()">Bekreft</button>`
+        return `<button class="checkout-button" onclick="confirmOrder()">Bekreft</button>`
     return `<button disabled="true">Bekreft</button>`
 }
 
+function confirmOrder(){
+    newOrder()
+    navigateToOrdrerConfirmed()
+}
+
+function newOrder(){
+    let id = model.data.orders[model.data.orders.length -1].orderId +1; 
+    let order = {
+        orderId: id,
+        date: model.input.checkout.date,
+        time: model.input.checkout.time,
+        name: model.input.checkout.name,
+        number: model.input.checkout.number, // 8-)
+        products: model.input.basket,
+    }
+    model.input.checkout.date = null
+    model.input.checkout.time = null
+    model.input.checkout.name = null
+    model.input.checkout.number = null
+    let newOrder = model.data.orders.push(order)
+    model.input.basket = []  //hvorfor funka det ikke å bruke index 0 for å cleare her ??!!
+    model.input.currentOrder = id
+}
 
 
 

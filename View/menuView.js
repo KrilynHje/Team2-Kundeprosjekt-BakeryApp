@@ -72,9 +72,9 @@ function showInput(label, type, field) {
 	`
 }
 
-function showButton(text, field1, field2, onclick) {
+function showButton(text, field1, field2, onclick, field3 = undefined) {
   return `
-		<button onclick="${onclick}" ${field1 == null || field2 == null ? 'disabled' : ''} style="width: 100%;" class="checkout-button button">${text}</button>
+		<button onclick="${onclick}" ${field1 == null || field2 == null || field3 == null ? 'disabled' : ''} style="width: 100%;" class="checkout-button button">${text}</button>
 	`
 }
 
@@ -89,7 +89,7 @@ function showLogin() {
   let html = `<div class="page">`
 
   html += `
-		${showInput('Brukernavn', 'text', 'model.input.menu.login.username')}
+		${showInput('Telefon', 'text', 'model.input.menu.login.username')}
 		${showInput('Passord', 'password', 'model.input.menu.login.password')}
 		${showButton('Login', model.input.menu.login.username, model.input.menu.login.password, 'login()')}
 		${showUserError()}
@@ -103,9 +103,10 @@ function showRegister() {
   let html = `<div class="page">`
 
   html += `
-		${showInput('Brukernavn', 'text', 'model.input.menu.register.username')}
+		${showInput('Telefon', 'text', 'model.input.menu.register.username')}
+    ${showInput('Navn', 'text', 'model.input.menu.login.name')}
 		${showInput('Passord', 'password', 'model.input.menu.register.password')}
-		${showButton('Registrer', model.input.menu.register.username, model.input.menu.register.password, 'register()')}
+		${showButton('Registrer', model.input.menu.register.username, model.input.menu.register.password, 'register()', model.input.menu.register.name)}
 		${showUserError()}
 	`
 
