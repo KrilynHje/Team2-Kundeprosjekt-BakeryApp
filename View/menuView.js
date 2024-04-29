@@ -8,6 +8,14 @@ const menuItems = [
     needsAdmin: false,
   },
   {
+    name: 'Handlekurv',
+    altName: null,
+    alt: false,
+    dataClick: navigateToBasket,
+    altDataClick: logout,
+    needsAdmin: false,
+  },
+  {
     name: 'Login',
     altName: 'Logg ut',
     alt: false,

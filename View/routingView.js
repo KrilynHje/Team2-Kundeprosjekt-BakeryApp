@@ -25,5 +25,8 @@ function updateView() {
     case 'contactinfo':
       view.innerHTML = contactInfoView()
       break
+    case 'toppings':
+      view.innerHTML = toppingsView()
+      break
   }
 }

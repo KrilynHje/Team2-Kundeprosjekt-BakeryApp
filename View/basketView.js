@@ -1,14 +1,19 @@
 function basketView() {
     return `
-    <div class="header">Pierre baguette</div>
-    <div class = "container">${drawCart()}
-        
-        
-        
-        
-        
-        </div>
-    <div class="footer">footer</div>
+    <div>${showHeader()}</div>
+
+    <div class = "basketContainer">
+    
+    
+    
+    <div class = "basketItemContainer">Handlekurv</div>
+    <div class = "basketItemContainer">
+
+    
+
+    <div>${drawCart()}</div>
+    </div>
+    </div>
     `
 
 
@@ -20,17 +25,34 @@ function drawCart(){
 
     for (counter = 0; counter < model.input.basket.length; counter++) {
         
-        let item =  dummy(model.input.basket[counter].itemId);
+        let item =  finditem(model.input.basket[counter].itemId);
+        let toppings =  findtopping(model.input.basket[counter].itemId);
+        let count = model.input.basket[counter].count
 
-        cartHtml += `<div>Navn: ${item.name} </div>`
+        cartHtml += /*html*/ `
+        <div class = "item-container"><div>Navn: ${item.name} </div>
+
+        <img class = "image-container" src = "${item.image}"/>
+
+        <div>${toppings.name} Antall: <button onclick = "increaseItemCount(${counter})">+</button>
+        
+        ${count}
+
+        <button onclick = "decreaseItemCount(${counter})">-</button>
+
+        Pris ${item.price * count + toppings.price * count}Kr</div></div>`
 
     }
 
     
     return cartHtml;
 
-} function dummy(element){
+} function finditem(element){
 
-   return model.data.items.find((pram) =>  element == pram.id);
+   return model.data.items.find((item) =>  element == item.id);
+
+} function findtopping(e){
+
+    return model.data.toppings.find((topping) => e == topping.id)
 
 }
