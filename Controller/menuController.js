@@ -1,5 +1,8 @@
 function toggleMenu() {
-  model.app.currentPage = model.app.currentPage == 'menu' ? null : 'menu'
+  if (model.app.currentPage != 'menu')
+    model.app.lastPage = model.app.currentPage
+  model.app.currentPage =
+    model.app.currentPage == 'menu' ? model.app.lastPage : 'menu'
   model.input.menu.isRegistering = false
   model.input.menu.isLogin = false
   updateView()

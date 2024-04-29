@@ -1,6 +1,7 @@
 const model = {
   app: {
     currentPage: 'checkout',
+    lastPage: null,
     user: 'pierre',
     error: null,
     categories: [
@@ -319,18 +320,18 @@ const model = {
       },
     ],
     users: [
-			{
-				username: "45852605",
-				password: "baguette",
-				admin: true,
-        name:"Pierre Baguette", 
-			},
-			{
-				username: "99845408",
-				password: "baguette",
-				admin: false,
-        name:"Bruce Wayne", 
-			}
-		],
+      {
+        username: '45852605',
+        password: 'baguette',
+        admin: true,
+        name: 'Pierre Baguette',
+      },
+      {
+        username: '99845408',
+        password: 'baguette',
+        admin: false,
+        name: 'Bruce Wayne',
+      },
+    ],
   },
 }
