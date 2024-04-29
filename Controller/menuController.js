@@ -80,6 +80,7 @@ function register() {
   }
 
   let username = model.input.menu.register.username
+	let name = model.input.menu.register.name
   let password = model.input.menu.register.password
 
   if (model.data.users.find((e) => e.username == username)) {
@@ -90,6 +91,7 @@ function register() {
 
   let user = {
     username: username,
+		name: name,
     password: password,
     admin: false,
   }
@@ -97,6 +99,7 @@ function register() {
   model.data.users.push(user)
 
   model.input.menu.register.username = null
+	model.input.menu.register.name = null
   model.input.menu.register.password = null
   model.app.user = user.username
   toggleMenu()
