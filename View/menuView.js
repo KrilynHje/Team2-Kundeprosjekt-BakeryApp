@@ -82,7 +82,7 @@ function showInput(label, type, field) {
 
 function showButton(text, field1, field2, onclick, field3 = undefined) {
   return `
-		<button onclick="${onclick}" ${field1 == null || field2 == null || field3 == null ? 'disabled' : ''} style="width: 100%;" class="checkout-button button">${text}</button>
+		<button onclick="${onclick}" ${field1 == null || field2 == null || (field3 == null && field3 != undefined) ? 'disabled' : ''} style="width: 100%;" class="checkout-button button">${text}</button>
 	`
 }
 
