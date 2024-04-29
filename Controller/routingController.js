@@ -25,3 +25,7 @@ function navigateToContactInfo() {
 	model.app.currentPage = "contactinfo";
 	updateView()
 }
+function navigateToToppings() {
+	model.app.currentPage = "toppings";
+	updateView()
+}
