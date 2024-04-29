@@ -3,9 +3,9 @@ function contactInfoView(){
     html += /*HTML*/
         `
         <div class="page"> 
+        <div class="checkout-page-align-grid ">
         ${showHeader()}
         ${showRegister()}
-   
         </div>
         </div>
     `
