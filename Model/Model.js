@@ -1,6 +1,6 @@
 const model = {
   app: {
-    currentPage: 'checkout',
+    currentPage: null,
     lastPage: null,
     user: 'pierre',
     error: null,
