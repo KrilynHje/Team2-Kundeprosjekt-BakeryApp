@@ -34,7 +34,7 @@ function getTopping(id) {
 	return model.data.toppings.find((e) => e.id == id)
 }
 
-function getbaskettotalprice() {
+function getBasketTotalPrice() {
 	let total = 0
 	model.input.basket.foreach((e) => {
 		let price = getitem(e.itemid).price
