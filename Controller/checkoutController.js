@@ -36,7 +36,7 @@ function validateDateInput(date) {
 
     if (inputDate.getDay() == 0) {
         alert("Stengt på søndager.");
-        model.input.checkout.date = null; 
+        model.input.checkout.date = null;
         return false;
     }
 
@@ -61,3 +61,4 @@ function numberInput(input) {
 }
 
 var today = new Date().toISOString().split('T')[0];
+

@@ -10,7 +10,7 @@ function showListings() {
   let highlightedHtml = '';
   let normalHtml = '';
 
-  Highlight(); 
+  Highlight();
 
   model.data.items.forEach((e) => {
     let hasFilter = false;
@@ -22,7 +22,7 @@ function showListings() {
         }
       });
     });
-    
+
     if (e.category === model.input.start.category && !hasFilter) {
       const itemHtml = listing(e);
       if (model.data.highlightedItems.includes(e.id)) {
@@ -49,10 +49,10 @@ function showListings() {
 function listing(item) {
   const highlightedClass = model.data.highlightedItems.includes(item.id) ? 'highlighted' : '';
   const ukensTilbudBox = model.data.highlightedItems.includes(item.id) ? '<div class="ukens-tilbud">Ukens Tilbud</div>' : '';
-  
+
   return `
     <div id="item-${item.id}" class="item-container ${highlightedClass}">
-      <img src="${item.image}" class="image-container" />
+      <img onclick="showProduct(${item.id})" src="${item.image}" class="image-container" />
       ${ukensTilbudBox}
       <p style="display: flex; justify-content: space-between;">
         <span>${item.name}</span>

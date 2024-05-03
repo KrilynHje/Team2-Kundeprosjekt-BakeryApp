@@ -9,7 +9,7 @@ function calculateOrderPrice(id, count, topping) {
     return price * count
 }
 
-function calculateTotalOrderPrice(id){
+function calculateTotalOrderPrice(id) {
     let order = getOrder(id)
     let total = 0
     order.products.forEach((e) => {
@@ -46,7 +46,7 @@ function orderConfirmedView() {
 }
 
 function drawItemOrder(item, count, topping) {
-    
+
     return `   
         <div class="order-confirmed-display">
             <li>${item.name} x${count}</li>
@@ -59,16 +59,16 @@ function drawItemOrder(item, count, topping) {
 
 function makeRegisterNewUserButton() {
 
-        return `<button class="checkout-button" onclick="navigateToContactInfo()">Registrer bruker</button>`
-   
+    return `<button class="checkout-button" onclick="navigateToContactInfo()">Registrer bruker</button>`
+
 }
 
 
-function showOrderItems(id){
+function showOrderItems(id) {
     let html = `<ul>`
     let order = getOrder(id)
 
-    order.products.forEach((e)=> {
+    order.products.forEach((e) => {
         let item = getItem(e.itemId)
         html += drawItemOrder(item, e.count, e.selectedTopping)
     })
