@@ -302,3 +302,70 @@
   display: flex;
   justify-content: center;
 }
+
+
+.topping-button {
+  border-radius: 50%;
+  /* Increases roundness */
+  background-color: #c39e4e;
+  /* Example background color */
+  color: white;
+  /* Text color */
+  padding: 5px 10px;
+  /* Decreases size */
+  font-size: 12px;
+  /* Smaller font size */
+  cursor: pointer;
+  /* Cursor style */
+  border: none;
+  /* Removes the default button border */
+  margin-right: 5px;
+  /* Space between buttons */
+  transform: scale(0.8);
+  /* Scales down the button size */
+}
+
+.topping-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.topping-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin-top: 20px;
+}
+
+
+.topping-input-field {
+  width: 15px;
+  margin: 0 5px;
+}
+
+.topping-name {
+  margin-left: 5px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.topping-controls {
+  /* display: flex; */
+  justify-content: space-between;
+  width: 100%;
+}
+
+.topping-element {
+  display: flex;
+  margin-top: 8px;
+}
+
+.topping-image {
+  width: 200px;
+  margin-right: 25px;
+  margin-bottom: 12px;
+  height: auto;
+}

@@ -48,6 +48,7 @@ const model = {
   input: {
     chosenToppings: [
     ],
+    totalProductAmount: 1,
 
     currentOrder: null,
     menu: {
@@ -69,40 +70,7 @@ const model = {
       filter: [],
     },
     basket: [
-      {
-        itemId: 0,
-        count: 4,
-        selectedTopping: [
-          {
-            id: 0,
-            count: 0,
-          }
-        ],
-        comment: '',
-      },
-      {
-        itemId: 5,
-        count: 4,
-        selectedTopping: [
-          {
-            id: 0,
-            count: 0,
-          }
-        ],
 
-        comment: '',
-      },
-      {
-        itemId: 3,
-        count: 4,
-        selectedTopping: [
-          {
-            id: 0,
-            count: 0,
-          }
-        ],
-        comment: '',
-      },
     ],
     checkout: {
       takeout: false,
@@ -238,7 +206,7 @@ const model = {
       {
         id: 0,
         name: 'Baguette',
-        price: 66,
+        price: 36,
         image: 'images/baguette.png',
         category: 0,
         productType: 1,
@@ -248,7 +216,7 @@ const model = {
       {
         id: 1,
         name: 'Ciabatta',
-        price: 68,
+        price: 36,
         image: 'images/ciabatta.png',
         category: 0,
         productType: 1,
@@ -258,7 +226,7 @@ const model = {
       {
         id: 2,
         name: 'Foccaccia',
-        price: 66,
+        price: 36,
         image: 'images/focaccia_myk.png',
         category: 0,
         productType: 1,
@@ -268,7 +236,7 @@ const model = {
       {
         id: 3,
         name: 'Horn',
-        price: 75,
+        price: 45,
         image: 'images/horn.png',
         category: 0,
         productType: 1,
@@ -278,7 +246,7 @@ const model = {
       {
         id: 4,
         name: 'Croissant',
-        price: 75,
+        price: 45,
         image: 'images/croissant.png',
         category: 0,
         productType: 1,
@@ -288,7 +256,7 @@ const model = {
       {
         id: 5,
         name: 'Salat',
-        price: 75,
+        price: 45,
         image: 'images/salat.png',
         category: 0,
         productType: 1,
@@ -298,7 +266,7 @@ const model = {
       {
         id: 6,
         name: 'Ostebriks',
-        price: 75,
+        price: 45,
         image: 'images/ostebriks.png',
         category: 0,
         productType: 1,
@@ -308,7 +276,7 @@ const model = {
       {
         id: 7,
         name: 'Kaffe',
-        price: 75,
+        price: 35,
         image: 'images/kaffekopp.png',
         category: 2,
         productType: 2,
@@ -328,19 +296,19 @@ const model = {
           {
             itemId: 0,
             count: 4,
-            selectedTopping: 1,
+            selectedTopping: [],
             comment: '',
           },
           {
             itemId: 5,
             count: 4,
-            selectedTopping: 1,
+            selectedTopping: [],
             comment: '',
           },
           {
             itemId: 3,
             count: 4,
-            selectedTopping: 1,
+            selectedTopping: [],
             comment: '',
           },
         ],

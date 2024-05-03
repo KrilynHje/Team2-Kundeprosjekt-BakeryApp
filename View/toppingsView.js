@@ -1,17 +1,24 @@
 // navigateToToppings()
 function toppingsView() {
-
     let html = ""
     html += /*HTML*/
         `
         <div class="page">
         ${showHeader()}
-        <img src="${model.data.items[model.app.chosenProduct].image}">
-        <div></div>
-        <div class="checkout-page-align-grid">
-        
+        <div class="topping-group">
+            <div style="display: flex;">
+                <img class="topping-image" src="${model.data.items[model.app.chosenProduct].image}">
+                <div>
+                    <h3>${model.data.items[model.app.chosenProduct].name}</h2>
+                    <p>fra ${model.data.items[model.app.chosenProduct].price}kr</p>
+                </div>
+            </div>
+        <div class="topping-controls">
         ${displayToppings()}
+        ${getTotalCountPriceToppings()}
+        ${makeBasketButtonsAndComment()}
      
+        </div>
         </div>  
     </div>
     `
@@ -28,7 +35,37 @@ function addOrRemoveCount(operator, id) {
     updateView()
 }
 
+function addOrRemoveCountItem(operator) {
+    if (model.input.totalProductAmount == null) model.input.totalProductAmount = 1
 
+    if (operator === '+') {
+        model.input.totalProductAmount++;
+    } else if (operator === '-' && model.input.totalProductAmount > 1) {
+        model.input.totalProductAmount--;
+    }
+    updateView()
+}
+
+function getTotalCountPriceToppings() {
+    let itemPrice = model.data.items[model.app.chosenProduct].price * model.input.totalProductAmount
+    let toppingsPrice = 0
+    model.input.chosenToppings.forEach((e) => {
+        toppingsPrice += model.data.toppings.find((t) => t.id == e.id).price * e.count
+    })
+    return `
+    <div class="topping-element">
+        ${showToppingCountButton('-', 0, 'addOrRemoveCountItem')}
+        <div>${model.input.totalProductAmount} | ${itemPrice + toppingsPrice}kr</div>
+        ${showToppingCountButton('+', 0, 'addOrRemoveCountItem')}
+    </div>
+    `
+}
+
+function showToppingCountButton(operator, id, functionName) {
+    return `
+        <button class="topping-button" onclick="${functionName}('${operator}', ${id})">${operator}</button>
+    `
+}
 
 function displayToppings() {
     let html = ``
@@ -42,31 +79,57 @@ function displayToppings() {
                         id: topping.id,
                         count: 0,
                     })
-            html += `<button onclick="addOrRemoveCount('-', ${topping.id})">-</button>
-            <input type="number" value="${model.input.chosenToppings[i].count ?? 0}">
-    <button onclick="addOrRemoveCount('+', ${topping.id})">+</button>
-    <div>${topping.name}</div>`
+            html +=/*HTML*/ `
+            <div class="topping-element">
+                ${showToppingCountButton('-', topping.id, 'addOrRemoveCount')}
+                <div class="topping-input-field">${model.input.chosenToppings.find((e) => e.id == topping.id).count ?? 0}</div>
+                ${showToppingCountButton('+', topping.id, 'addOrRemoveCount')}
+                <div class="topping-name">${topping.name}</div>
+            </div>
+            `
         }
     }
     return html
 
 }
 
-// function pushToBasket() {
+function makeBasketButtonsAndComment() {
+    let html = ``
+    html += /*HTML*/`
+    <div>
+        <input type="text">
+        <button onclick="pushToBasketOrCheckout('basket')">Handle mer </button>
+        <button onclick="pushToBasketOrCheckout('checkout')">Kjøp og gå til kassen </button>
+    </div>
+    `
 
+    return html
+}
 
+function pushToBasketOrCheckout(destination) {
+    let toppings = model.input.chosenToppings
+    let count = model.input.totalProductAmount
+    let item = model.data.items.find((e) => e.id == model.app.chosenProduct)
 
-// }
+    let basketItem = {
+        itemId: item.id,
+        count: count,
+        selectedTopping: toppings,
+        comment: "",
+    }
 
-// function navigateFromMain() {
-//     //onclick til main view som navigerer til toppings view
-//     navigateToToppings()
-// }
+    model.input.basket.push(basketItem)
 
+    model.input.chosenToppings = []
+    model.input.totalProductAmount = 1
+    model.app.chosenProduct = null
 
-
-
-
-
-
-
+    switch (destination) {
+        case 'checkout':
+            navigateToCheckout()
+            break
+        case `basket`:
+            navigateToMain()
+            break
+    }
+}
