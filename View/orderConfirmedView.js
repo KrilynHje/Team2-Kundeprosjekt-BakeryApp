@@ -1,26 +1,29 @@
 function getOrder(id) {
-    return model.data.orders.find((e) => e.orderId == id)
+  return model.data.orders.find((e) => e.orderId == id)
 }
 
 function calculateOrderPrice(id, count, topping) {
-    let item = getItem(id)
-    let price = item.price
-    if (item.selectedTopping != 0) price += getTopping(topping).price
-    return price * count
+  let item = getItem(id)
+  let price = item.price
+  topping.forEach((t) => {
+    price += getTopping(t.id).price * t.count
+  })
+  return price * count
 }
 
 function calculateTotalOrderPrice(id) {
-    let order = getOrder(id)
-    let total = 0
-    order.products.forEach((e) => {
-        total += calculateOrderPrice(e.itemId, e.count, e.selectedTopping)
-    })
-    return total
+  let order = getOrder(id)
+  let total = 0
+  order.products.forEach((e) => {
+    total += calculateOrderPrice(e.itemId, e.count, e.selectedTopping)
+  })
+  return total
 }
 function orderConfirmedView() {
-    let html = ""
-    html += /*HTML*/
-        `
+  let html = ''
+  html +=
+    /*HTML*/
+    `
         <div class="page"> 
         ${showHeader()}
         <div class="checkout-page-align-grid">
@@ -42,12 +45,11 @@ function orderConfirmedView() {
         </div>
         </div>
     `
-    return html
+  return html
 }
 
 function drawItemOrder(item, count, topping) {
-
-    return `   
+  return `   
         <div class="order-confirmed-display">
             <li>${item.name} x${count}</li>
             <span>${calculateOrderPrice(item.id, count, topping)}kr</span>
@@ -55,25 +57,19 @@ function drawItemOrder(item, count, topping) {
     `
 }
 
-
-
 function makeRegisterNewUserButton() {
-
-    return `<button class="checkout-button" onclick="navigateToContactInfo()">Registrer bruker</button>`
-
+  return `<button class="checkout-button" onclick="navigateToContactInfo()">Registrer bruker</button>`
 }
-
 
 function showOrderItems(id) {
-    let html = `<ul>`
-    let order = getOrder(id)
+  let html = `<ul>`
+  let order = getOrder(id)
 
-    order.products.forEach((e) => {
-        let item = getItem(e.itemId)
-        html += drawItemOrder(item, e.count, e.selectedTopping)
-    })
+  order.products.forEach((e) => {
+    let item = getItem(e.itemId)
+    html += drawItemOrder(item, e.count, e.selectedTopping)
+  })
 
-    html += `</ul>`
-    return html
+  html += `</ul>`
+  return html
 }
-
