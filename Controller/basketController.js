@@ -6,6 +6,11 @@ function increaseItemCount(counter){
     
     
     function decreaseItemCount(counter){
-        model.input.basket[counter].count --;
-        updateView()
+
+        if(model.input.basket[counter].count == 0){
+            return
+        } else{
+            model.input.basket[counter].count --;
+            updateView()
+        }
     }

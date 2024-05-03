@@ -2,7 +2,7 @@ function basketView() {
     return `
     <div>${showHeader()}</div>
 
-    <div class = "basketContainer">
+    <div>
     
     
     
@@ -22,6 +22,7 @@ function basketView() {
 function drawCart(){
 
     let cartHtml = "";
+    let totalprice = 0;
 
     for (counter = 0; counter < model.input.basket.length; counter++) {
         
@@ -34,16 +35,18 @@ function drawCart(){
 
         <img class = "image-container" src = "${item.image}"/>
 
-        <div>${toppings.name} Antall: <button onclick = "increaseItemCount(${counter})">+</button>
+        <div>
+        ${toppings.name} Antall: <button onclick = "increaseItemCount(${counter})">+</button>
         
         ${count}
 
         <button onclick = "decreaseItemCount(${counter})">-</button>
 
-        Pris ${item.price * count + toppings.price * count}Kr</div></div>`
+        <div>Pris ${item.price * count + toppings.price * count}Kr</div></div>
+        `
 
     }
-
+cartHtml += `<div>Total pris ${getBasketTotalPrice()}Kr <button class = "takeout-button" onclick = "navigateToCheckout()">Til kassen</button></div>`
     
     return cartHtml;
 
