@@ -1,9 +1,10 @@
 const model = {
   app: {
-    currentPage: 'checkout',
+    currentPage: null,
     lastPage: null,
     user: 'pierre',
     error: null,
+    chosenProduct: null,
     categories: [
       'Påsmurt og Salater',
       'Kaker',
@@ -45,6 +46,9 @@ const model = {
   },
 
   input: {
+    chosenToppings: [
+    ],
+
     currentOrder: null,
     menu: {
       isRegistering: false,
@@ -68,19 +72,35 @@ const model = {
       {
         itemId: 0,
         count: 4,
-        selectedTopping: 1,
+        selectedTopping: [
+          {
+            id: 0,
+            count: 0,
+          }
+        ],
         comment: '',
       },
       {
         itemId: 5,
         count: 4,
-        selectedTopping: 1,
+        selectedTopping: [
+          {
+            id: 0,
+            count: 0,
+          }
+        ],
+
         comment: '',
       },
       {
         itemId: 3,
         count: 4,
-        selectedTopping: 1,
+        selectedTopping: [
+          {
+            id: 0,
+            count: 0,
+          }
+        ],
         comment: '',
       },
     ],
@@ -162,6 +182,7 @@ const model = {
         price: 12,
         productType: 1,
         filters: [3],
+        toppingCount: null,
       },
 
       {
@@ -170,6 +191,7 @@ const model = {
         price: 12,
         productType: 2,
         filters: [],
+        toppingCount: null,
       },
       {
         id: 7,
@@ -177,6 +199,7 @@ const model = {
         price: 12,
         productType: 2,
         filters: [],
+        toppingCount: null,
       },
       {
         id: 8,
@@ -184,6 +207,7 @@ const model = {
         price: 12,
         productType: 2,
         filters: [],
+        toppingCount: null,
       },
       {
         id: 9,
@@ -191,6 +215,7 @@ const model = {
         price: 12,
         productType: 2,
         filters: [3],
+        toppingCount: null,
       },
       {
         id: 10,
@@ -198,6 +223,7 @@ const model = {
         price: 12,
         productType: 2,
         filters: [3],
+        toppingCount: null,
       },
       {
         id: 11,
@@ -205,6 +231,7 @@ const model = {
         price: 12,
         productType: 2,
         filters: [3],
+        toppingCount: null,
       },
     ],
     items: [

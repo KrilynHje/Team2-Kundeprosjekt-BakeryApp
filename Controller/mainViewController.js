@@ -13,3 +13,12 @@ function setFilter(index) {
   }
   updateView()
 }
+
+function showProduct(id) {
+  model.app.chosenProduct = id
+  model.app.currentPage = 'toppings'
+  model.input.chosenToppings = []
+  // makeToppingsArray(model.data.toppings.filter((topping) => topping.productType == model.data.items[model.app.chosenProduct].productType).length)
+  updateView()
+}
+
