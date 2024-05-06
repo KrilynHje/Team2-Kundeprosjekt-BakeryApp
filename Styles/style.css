@@ -27,8 +27,8 @@
 #dropdown-btn-text {
   font-weight: bold;
   font-size: 20px;
-	align-content: center;
-	margin-left: 10px;
+  align-content: center;
+  margin-left: 10px;
 }
 
 #dropdown-content {
@@ -41,8 +41,8 @@
 }
 
 #dropdown-down-arrow {
-	width: 25px;
-	margin-right: 10px;
+  width: 25px;
+  margin-right: 10px;
 }
 
 #header {
@@ -52,7 +52,7 @@
   place-items: center;
 }
 
-#header > img {
+#header>img {
   grid-column-start: 2;
   justify-self: center;
   cursor: pointer;
@@ -65,7 +65,7 @@
   align-items: center;
 }
 
-#header-menu-container > p {
+#header-menu-container>p {
   margin-right: 15px;
   margin-top: revert;
   font-weight: 500;
@@ -114,7 +114,7 @@
   user-select: none;
 }
 
-.filter-option-button > input {
+.filter-option-button>input {
   pointer-events: none;
 }
 
@@ -138,7 +138,7 @@
   box-shadow: 0 -2px 5px #d6d6d6;
 }
 
-#mini-basket > button {
+#mini-basket>button {
   margin-left: 10px;
   margin-right: 10px;
 }
@@ -201,7 +201,7 @@
   margin-bottom: 15px;
 }
 
-.input-container > p {
+.input-container>p {
   margin-bottom: 0;
 }
 
@@ -258,7 +258,7 @@
   justify-content: center;
 }
 
-.checkout-page-align > input {
+.checkout-page-align>input {
   margin: 5px;
 }
 
@@ -383,4 +383,24 @@
   position: absolute;
   right: 50px;
   width: 25px;
+}
+
+.topping-summary-and-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  /* Adjust as needed to position the elements a little bit down from the other buttons */
+}
+
+.basket-buttons-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.basket-buttons {
+  margin-top: 20px;
+  /* Adjust as needed to position the buttons below the input */
 }

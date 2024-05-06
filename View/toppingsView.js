@@ -15,6 +15,7 @@ function toppingsView() {
             </div>
         <div class="topping-controls">
         ${displayToppings()}
+        <div class="topping-summary-and-buttons" style="display: flex; flex-direction: column; align-items: center;">
         ${getTotalCountPriceToppings()}
         ${makeBasketButtonsAndComment()}
      
@@ -96,10 +97,12 @@ function displayToppings() {
 function makeBasketButtonsAndComment() {
     let html = ``
     html += /*HTML*/`
-    <div>
-        <input type="text">
+    <div class="basket-buttons-container">
+        <input type="text" placeholder="Kommentar..">
+        <div class="basket-buttons">
         <button onclick="pushToBasketOrCheckout('basket')">Handle mer </button>
         <button onclick="pushToBasketOrCheckout('checkout')">Kjøp og gå til kassen </button>
+        </div>
     </div>
     `
 
