@@ -25,27 +25,32 @@ function orderConfirmedView() {
     /*HTML*/
     `
         <div class="page"> 
-        ${showHeader()}
-        <div class="checkout-page-align-grid">
-        <h3>Takk for din Bestilling!</h3>
-        <div class="light-grey-rectangle">
-        ${showOrderItems(model.input.currentOrder)}
-        <div class="order-confirmed-display">
-            <span style="Border: top; ">Total:</span>
-            <span>${calculateTotalOrderPrice(model.input.currentOrder)}kr</span>
-        </div>
-        </div>
-
-        </div>
-        <div class="register-button-container">
-        <p class="muted-text">Raskere bestilling nestegang? Registrer deg som bruker hos oss!</p>
-
-        ${makeRegisterNewUserButton()}
-       
-        </div>
+        	${showHeader()}
+        	<div class="checkout-page-align-grid">
+        		<h3>Takk for din Bestilling!</h3>
+        		<div class="light-grey-rectangle">
+        			${showOrderItems(model.input.currentOrder)}
+        			<div class="order-confirmed-display">
+            		<span style="Border: top; ">Total:</span>
+            		<span>${calculateTotalOrderPrice(model.input.currentOrder)}kr</span>
+        			</div>
+        		</div>
+						${drawShowRegister()}
+        	</div>
         </div>
     `
   return html
+}
+
+function drawShowRegister() {
+	if (model.app.user) return ``
+
+  return `
+  	<div class="register-button-container">
+  		<p class="muted-text">Raskere bestilling nestegang? Registrer deg som bruker hos oss!</p>
+  		${makeRegisterNewUserButton()}
+  	</div>
+	`
 }
 
 function drawItemOrder(item, count, topping) {

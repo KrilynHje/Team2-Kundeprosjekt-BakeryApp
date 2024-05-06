@@ -2,7 +2,7 @@ const model = {
   app: {
     currentPage: null,
     lastPage: null,
-    user: 'pierre',
+    user: 'Pierre Baguette',
     error: null,
     chosenProduct: null,
     categories: [

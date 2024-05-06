@@ -112,7 +112,7 @@ function showRegister() {
 
   html += `
 		${showInput('Telefon', 'text', 'model.input.menu.register.username')}
-    ${showInput('Navn', 'text', 'model.input.menu.login.name')}
+    ${showInput('Navn', 'text', 'model.input.menu.register.name')}
 		${showInput('Passord', 'password', 'model.input.menu.register.password')}
 		${showButton('Registrer', model.input.menu.register.username, model.input.menu.register.password, 'register()', model.input.menu.register.name)}
 		${showUserError()}

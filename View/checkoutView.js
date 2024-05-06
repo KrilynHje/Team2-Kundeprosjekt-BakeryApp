@@ -1,17 +1,22 @@
-function checkSunday(){
-
-    if (futureDate.getDay() === 0) {
-        return true;
-    } else {
-        return false;
-    }
-
+function checkSunday() {
+  if (futureDate.getDay() === 0) {
+    return true
+  } else {
+    return false
+  }
 }
-var today = new Date().toISOString().split('T')[0];
+var today = new Date().toISOString().split('T')[0]
 function checkoutView() {
-    let html = ""
-    html += /*HTML*/
-        `
+  if (model.app.user) {
+    let user = model.data.users.find((e) => e.name == model.app.user)
+    model.input.checkout.number = user.username
+    model.input.checkout.name = user.name
+  }
+
+  let html = ''
+  html +=
+    /*HTML*/
+    `
        
         <div class="page">
 
@@ -41,84 +46,71 @@ function checkoutView() {
     </div>
     </div>
     `
-    return html
+  return html
 }
-
 
 function checkInputs() {
-    return model.input.checkout.name != null && 
-        model.input.checkout.number != null && 
-        model.input.checkout.date != null &&
-        model.input.checkout.time != null 
+  return (
+    model.input.checkout.name != null &&
+    model.input.checkout.number != null &&
+    model.input.checkout.date != null &&
+    model.input.checkout.time != null
+  )
 }
-
-
 
 function makeConfirmButton() {
-    if (checkInputs())
-        return `<button class="checkout-button" onclick="confirmOrder()">Bekreft</button>`
-    return `<button disabled="true">Bekreft</button>`
+  if (checkInputs())
+    return `<button class="checkout-button" onclick="confirmOrder()">Bekreft</button>`
+  return `<button disabled="true">Bekreft</button>`
 }
 
-function confirmOrder(){
-    newOrder()
-    navigateToOrdrerConfirmed()
+function confirmOrder() {
+  // store checkout input in register, in case user wants to register later
+  model.input.menu.register.name = model.input.checkout.name
+  model.input.menu.register.username = model.input.checkout.number
+
+  newOrder()
+  navigateToOrdrerConfirmed()
 }
 
-function newOrder(){
-    let id = model.data.orders[model.data.orders.length -1].orderId +1; 
-    let order = {
-        orderId: id,
-        date: model.input.checkout.date,
-        time: model.input.checkout.time,
-        name: model.input.checkout.name,
-        number: model.input.checkout.number, // 8-)
-        products: model.input.basket,
-    }
-    model.input.checkout.date = null
-    model.input.checkout.time = null
-    model.input.checkout.name = null
-    model.input.checkout.number = null
-    let newOrder = model.data.orders.push(order)
-    model.input.basket = []  //hvorfor funka det ikke å bruke index 0 for å cleare her ??!!
-    model.input.currentOrder = id
+function newOrder() {
+  let id = model.data.orders[model.data.orders.length - 1].orderId + 1
+  let order = {
+    orderId: id,
+    date: model.input.checkout.date,
+    time: model.input.checkout.time,
+    name: model.input.checkout.name,
+    number: model.input.checkout.number, // 8-)
+    products: model.input.basket,
+  }
+  model.input.checkout.date = null
+  model.input.checkout.time = null
+  model.input.checkout.name = null
+  model.input.checkout.number = null
+  let newOrder = model.data.orders.push(order)
+  model.input.basket = [] //hvorfor funka det ikke å bruke index 0 for å cleare her ??!!
+  model.input.currentOrder = id
 }
-
-
-
 
 function makeTakeoutButtons() {
-    let html = ""
+  let html = ''
 
-    if (model.input.checkout.takeout === null) {
-        html += `
+  if (model.input.checkout.takeout === null) {
+    html += `
         <button onclick="checkIfTakeout(true)">Ta med </button>
         <button onclick="checkIfTakeout(false)">Spise Inne</button>
         `
-    }
-    else if (model.input.checkout.takeout) {
-        html += `
+  } else if (model.input.checkout.takeout) {
+    html += `
         <button class="takeout-button" onclick="checkIfTakeout(true)">Ta med </button>
         <button class="notChosen" onclick="checkIfTakeout(false)">Spise Inne</button>
         `
-    }
-    else if (!model.input.checkout.takeout) {
-        html += `
+  } else if (!model.input.checkout.takeout) {
+    html += `
         <button class="notChosen" onclick="checkIfTakeout(true)">Ta med </button>
         <button class="takeout-button" onclick="checkIfTakeout(false)">Spise Inne</button>
         `
-    }
+  }
 
-    return html
+  return html
 }
-
-
-
-
-
-
-
-
-
-
-

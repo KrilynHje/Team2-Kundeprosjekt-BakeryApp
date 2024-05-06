@@ -8,6 +8,7 @@ function updateView() {
       view.innerHTML = contactView()
       break
     case null:
+			resetRegisterInput()
       view.innerHTML = mainView()
       break
     case 'basket':

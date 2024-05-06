@@ -29,3 +29,8 @@ function navigateToToppings() {
 	model.app.currentPage = "toppings";
 	updateView()
 }
+
+function resetRegisterInput() {
+	model.input.menu.register.name = null
+	model.input.menu.register.username = null
+}

@@ -57,7 +57,8 @@ function login() {
     model.app.user = username
     model.input.menu.login.username = null
     model.input.menu.login.password = null
-    toggleMenu()
+    // toggleMenu()
+		navigateToMain()
   } else {
     model.app.error = 'Feil brukernavn eller passord'
     updateView()
@@ -102,5 +103,6 @@ function register() {
 	model.input.menu.register.name = null
   model.input.menu.register.password = null
   model.app.user = user.username
-  toggleMenu()
+  // toggleMenu()
+	navigateToMain()
 }
