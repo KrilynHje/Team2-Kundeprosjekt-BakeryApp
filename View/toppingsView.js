@@ -14,6 +14,7 @@ function toppingsView() {
                 </div>
             </div>
         <div class="topping-controls">
+        <div>Velg pålegg:</div>
         ${displayToppings()}
         <div class="topping-summary-and-buttons" style="display: flex; flex-direction: column; align-items: center;">
         ${getTotalCountPriceToppings()}
@@ -54,9 +55,9 @@ function getTotalCountPriceToppings() {
         toppingsPrice += model.data.toppings.find((t) => t.id == e.id).price * e.count
     })
     return `
-    <div class="topping-element">
+    <div class="topping-element">Totalt:&nbsp; 
         ${showToppingCountButton('-', 0, 'addOrRemoveCountItem')}
-        <div>${model.input.totalProductAmount} | ${itemPrice + toppingsPrice}kr</div>
+        <div> ${model.input.totalProductAmount} stk.| ${itemPrice + toppingsPrice}kr</div>
         ${showToppingCountButton('+', 0, 'addOrRemoveCountItem')}
     </div>
     `
@@ -99,9 +100,10 @@ function makeBasketButtonsAndComment() {
     html += /*HTML*/`
     <div class="basket-buttons-container">
         <input type="text" placeholder="Kommentar..">
+        <div><
         <div class="basket-buttons">
-        <button onclick="pushToBasketOrCheckout('basket')">Handle mer </button>
-        <button onclick="pushToBasketOrCheckout('checkout')">Kjøp og gå til kassen </button>
+        <button class="takeout-button"onclick="pushToBasketOrCheckout('basket')">Handle mer </button>
+        <button class="takeout-button"onclick="pushToBasketOrCheckout('checkout')">Kjøp og gå til kassen </button>
         </div>
     </div>
     `
