@@ -1,7 +1,15 @@
 /*HUSK Å MELDE FRA OM ENDRINGER HER!!*/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+}
+
 .page {
   padding: 15px;
 }
+
 
 #filter-container {
   padding-bottom: 20px;
@@ -43,6 +51,10 @@
 #dropdown-down-arrow {
   width: 25px;
   margin-right: 10px;
+}
+
+#listings-container>div {
+  margin: 0 auto;
 }
 
 #header {
