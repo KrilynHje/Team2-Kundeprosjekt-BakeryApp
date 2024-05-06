@@ -362,14 +362,15 @@ body {
 }
 
 .topping-name {
-  margin-left: 5px;
+  margin-left: 10px;
   font-size: 20px;
   font-weight: 500;
 }
 
 .topping-controls {
-  justify-content: space-between;
+  justify-content: space-around;
   width: 100%;
+  margin-left: 15px;
 }
 
 .topping-element {
@@ -411,6 +412,11 @@ body {
 
 
 .basket-buttons {
-  margin-top: 20px;
+  margin-top: 5px;
+
+}
+
+.topping-choice-centering {
+  justify-content: center;
 
 }
