@@ -103,8 +103,8 @@ function makeBasketButtonsAndComment() {
         <input type="text" placeholder="Legg til en Kommentar..">
         
         <div class="basket-buttons">
-        <button class="takeout-button"onclick="pushToBasketOrCheckout('basket')">Handle mer </button>
-        <button class="takeout-button"onclick="pushToBasketOrCheckout('checkout')">Gå til kassen </button>
+        <button class="takeout-button button"onclick="pushToBasketOrCheckout('basket')">Handle mer </button>
+        <button class="takeout-button button"onclick="pushToBasketOrCheckout('checkout')">Gå til kassen </button>
         </div>
     </div>
     `

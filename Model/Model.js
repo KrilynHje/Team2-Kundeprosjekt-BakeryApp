@@ -109,44 +109,97 @@ const model = {
     toppings: [
       {
         id: 0,
-        name: 'Ost og skinke',
+        name: 'Skinke',
         price: 12,
         productType: 1,
         filters: [],
       },
-
       {
         id: 1,
-        name: 'Hånpillede reker',
-        price: 12,
-        productType: 1,
-        filters: [1],
-      },
-      {
-        id: 2,
         name: 'Roastbeef',
         price: 12,
         productType: 1,
         filters: [],
       },
+
       {
-        id: 3,
-        name: 'Eggerøree og bacon',
+        id: 2,
+        name: 'Bacon',
         price: 12,
         productType: 1,
-        filters: [2],
+        filters: [],
+      },
+  
+      {
+        id: 3,
+        name: 'Spekeskinke',
+        price: 12,
+        productType: 1,
+        filters: [],
       },
       {
         id: 4,
-        name: 'Kylling og dressing',
+        name: 'Kylling',
         price: 12,
         productType: 1,
-        filters: [2, 3],
+        filters: [],
+      },
+      {
+        id: 5,
+        name: 'Røkelaks',
+        price: 12,
+        productType: 1,
+        filters: [],
+      },
+      {
+        id: 6,
+        name: 'Hånpillede reker ',
+        price: 12,
+        productType: 1,
+        filters: [1],
+      },
+      {
+        id: 7,
+        name: 'Hvitost',
+        price: 12,
+        productType: 1,
+        filters: [3],
+      },
+      {
+        id: 8,
+        name: 'Brie',
+        price: 12,
+        productType: 1,
+        filters: [3],
       },
 
       {
-        id: 5,
-        name: 'Brie og Spekeskinke',
+        id: 9,
+        name: 'Brunost',
+        price: 12,
+        productType: 1,
+        filters: [3],
+        toppingCount: null,
+      },
+      {
+        id: 10,
+        name: 'Ruccola',
+        price: 12,
+        productType: 1,
+        filters: [4],
+        toppingCount: null,
+      },
+      {
+        id: 11,
+        name: 'Aioli',
+        price: 12,
+        productType: 1,
+        filters: [3],
+        toppingCount: null,
+      },
+      {
+        id: 12,
+        name: 'Majones',
         price: 12,
         productType: 1,
         filters: [3],
@@ -154,7 +207,7 @@ const model = {
       },
 
       {
-        id: 6,
+        id: 13,
         name: 'Americano',
         price: 12,
         productType: 2,
@@ -162,7 +215,7 @@ const model = {
         toppingCount: null,
       },
       {
-        id: 7,
+        id: 14,
         name: 'Traktekaffe',
         price: 12,
         productType: 2,
@@ -170,7 +223,7 @@ const model = {
         toppingCount: null,
       },
       {
-        id: 8,
+        id: 15,
         name: 'Espresso',
         price: 12,
         productType: 2,
@@ -178,7 +231,7 @@ const model = {
         toppingCount: null,
       },
       {
-        id: 9,
+        id: 16,
         name: 'Flat white',
         price: 12,
         productType: 2,
@@ -186,7 +239,7 @@ const model = {
         toppingCount: null,
       },
       {
-        id: 10,
+        id: 17,
         name: 'Caffe latte',
         price: 12,
         productType: 2,
@@ -194,7 +247,7 @@ const model = {
         toppingCount: null,
       },
       {
-        id: 11,
+        id: 18,
         name: 'Caffe mocca',
         price: 12,
         productType: 2,
