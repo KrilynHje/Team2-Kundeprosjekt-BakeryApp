@@ -163,7 +163,9 @@ function mainView() {
 		<div class="page">
 			${showHeader()}
 			${showCategoryAndFilter()}
-			${showListings()}
+			<div id="listings-container">
+				${showListings()}
+			</div>
 		</div>
 		${showMiniBasket()}
 	`
