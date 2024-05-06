@@ -2,8 +2,17 @@ function showHeader() {
   return `
 		<div id="header">
 			<img onclick="navigateToMain()" src="images/baguetteLogo2.png" />
-		  <div onclick="toggleMenu()" id="header-menu"></div>
+			<div id="header-menu-container">
+				${showLoggedInUser()}
+		  	<div onclick="toggleMenu()" id="header-menu"></div>
+			</div>
 		</div>
+	`
+}
+
+function showLoggedInUser() {
+	return `
+		<img id="user" src="images/${model.app.user ? 'user-solid.svg' : 'user-slash-solid.svg'}" />
 	`
 }
 

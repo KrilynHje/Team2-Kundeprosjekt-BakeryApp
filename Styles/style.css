@@ -52,16 +52,27 @@
   place-items: center;
 }
 
-#header>img {
+#header > img {
   grid-column-start: 2;
   justify-self: center;
   cursor: pointer;
 }
 
-#header-menu {
-  --size: 25px;
+#header-menu-container {
+  display: flex;
   grid-column-start: 3;
   justify-self: end;
+  align-items: center;
+}
+
+#header-menu-container > p {
+  margin-right: 15px;
+  margin-top: revert;
+  font-weight: 500;
+}
+
+#header-menu {
+  --size: 25px;
   border-radius: 25px;
   height: var(--size);
   width: var(--size);
@@ -103,7 +114,7 @@
   user-select: none;
 }
 
-.filter-option-button>input {
+.filter-option-button > input {
   pointer-events: none;
 }
 
@@ -127,7 +138,7 @@
   box-shadow: 0 -2px 5px #d6d6d6;
 }
 
-#mini-basket>button {
+#mini-basket > button {
   margin-left: 10px;
   margin-right: 10px;
 }
@@ -190,7 +201,7 @@
   margin-bottom: 15px;
 }
 
-.input-container>p {
+.input-container > p {
   margin-bottom: 0;
 }
 
@@ -247,7 +258,7 @@
   justify-content: center;
 }
 
-.checkout-page-align>input {
+.checkout-page-align > input {
   margin: 5px;
 }
 
@@ -303,7 +314,6 @@
   justify-content: center;
 }
 
-
 .topping-button {
   border-radius: 50%;
   /* Increases roundness */
@@ -340,7 +350,6 @@
   margin-top: 20px;
 }
 
-
 .topping-input-field {
   width: 15px;
   margin: 0 5px;
@@ -368,4 +377,10 @@
   margin-right: 25px;
   margin-bottom: 12px;
   height: auto;
+}
+
+#user {
+  position: absolute;
+  right: 50px;
+  width: 25px;
 }
