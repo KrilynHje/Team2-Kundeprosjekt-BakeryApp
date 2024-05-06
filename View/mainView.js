@@ -23,8 +23,8 @@ function dropdownIsExpanded(elem, display = 'block') {
 
 function toggleDropdown() {
   let dropdown = document.getElementById('dropdown-content')
-  let arrow = document.getElementById('down-arrow')
-  arrow.innerText = !dropdownIsExpanded(dropdown) ? '🞁' : '🞃'
+  let arrow = document.getElementById('dropdown-down-arrow')
+  arrow.style = !dropdownIsExpanded(dropdown) ? 'transform: scaleY(-1)' : 'transform: scaleY(1)'
   dropdown.style.display = dropdownIsExpanded(dropdown) ? 'none' : 'block'
 }
 
@@ -58,12 +58,13 @@ function getBasketTotalPrice() {
 
 function showCategorySelector() {
   let selectedCategory = model.app.categories[model.input.start.category]
+					// <span id="down-arrow">🞃</span>
   let html = `
 		<div class="dropdown">
 			<button onclick="toggleDropdown()" class="dropdown-btn">
 				<div id="dropdown-btn-content">
 					<span id="dropdown-btn-text">${selectedCategory}</span>
-					<span id="down-arrow">🞃</span>
+					<img id="dropdown-down-arrow" src="images/caret-down-solid.svg" />
 				</div>
 			</button>
 			<div id="dropdown-content">

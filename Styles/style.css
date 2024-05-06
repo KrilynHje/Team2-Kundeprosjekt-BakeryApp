@@ -27,6 +27,8 @@
 #dropdown-btn-text {
   font-weight: bold;
   font-size: 20px;
+	align-content: center;
+	margin-left: 10px;
 }
 
 #dropdown-content {
@@ -38,11 +40,9 @@
   border: 1px solid black;
 }
 
-#down-arrow {
-  font-size: 75px;
-  position: absolute;
-  right: 10px;
-  top: -30px;
+#dropdown-down-arrow {
+	width: 25px;
+	margin-right: 10px;
 }
 
 #header {
