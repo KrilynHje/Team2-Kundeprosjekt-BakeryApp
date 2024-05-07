@@ -102,13 +102,13 @@ function makeTakeoutButtons() {
         `
   } else if (model.input.checkout.takeout) {
     html += `
-        <button class="takeout-button" onclick="checkIfTakeout(true)">Ta med </button>
+        <button class="takeout-button button" onclick="checkIfTakeout(true)">Ta med </button>
         <button class="notChosen" onclick="checkIfTakeout(false)">Spise Inne</button>
         `
   } else if (!model.input.checkout.takeout) {
     html += `
         <button class="notChosen" onclick="checkIfTakeout(true)">Ta med </button>
-        <button class="takeout-button" onclick="checkIfTakeout(false)">Spise Inne</button>
+        <button class="takeout-button button" onclick="checkIfTakeout(false)">Spise Inne</button>
         `
   }
 
