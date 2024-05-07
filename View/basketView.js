@@ -1,18 +1,13 @@
 function basketView() {
     return `
-    <div>${showHeader()}</div>
-
-    <div>
-    
-    
-    
-    <div class = "basketItemContainer">Handlekurv</div>
-    <div class = "basketItemContainer">
-
-    
-
-    <div>${drawCart()}</div>
-    </div>
+    <div class="page">
+        <div>${showHeader()}</div>
+        <div>
+            <h2 style="margin:30px;" class = "basketItemContainer">Handlekurv</h2>
+            <div class = "basketItemContainer">
+                <div>${drawCart()}</div>
+            </div>
+        </div>
     </div>
     `
 
@@ -46,7 +41,7 @@ function showToppingInfo(toppings) {
     toppings.forEach((e) => {
         let topping = model.data.toppings.find((t) => t.id == e.id)
         if (e.count > 0)
-            html += `<p>${topping.name}, x ${e.count}</p>`
+            html += `<p style="margin-bottom: 0;">${topping.name} x ${e.count}</p>`
     })
 
     return html
@@ -65,20 +60,28 @@ function drawCart() {
         let count = model.input.basket[counter].count
 
         cartHtml += /*html*/ `
-        <div class = "item-container"><div> ${item.name} </div>
+        <div class = "item-container">
+            <div> ${item.name} </div>
+            <img class = "image-container" src = "${item.image}"/>
 
-        <img class = "image-container" src = "${item.image}"/>
+            ${showToppingInfo(model.input.basket[counter].selectedTopping)}
 
-        ${showToppingInfo(model.input.basket[counter].selectedTopping)}
-
-        <div>
-        ${toppings.name} Antall: <button class="topping-button" onclick = "decreaseItemCount()">-</button> ${counter}<button class="topping-button" onclick = "increaseItemCount()">+</button>
-
-        <div>Pris ${item.price * count + toppings.price * count}Kr</div></div>
+            <div style="margin-top:15px;">
+                Antall: 
+                <button class="topping-button" onclick = "decreaseItemCount(${counter})">-</button> 
+                ${count}
+                <button class="topping-button" onclick = "increaseItemCount(${counter})">+</button>
+            </div>
+        </div>
         `
 
     }
-    cartHtml += `<div>Total pris ${getBasketTotalPrice()}Kr <button class = "takeout-button" onclick = "navigateToCheckout()">Til kassen</button></div>`
+    cartHtml += `
+        <div>
+            Total pris ${getBasketTotalPrice()}Kr 
+            <button style="margin-top:15px;"class = "button takeout-button" onclick = "navigateToCheckout()">Til kassen</button>
+        </div>
+    `
 
     return cartHtml;
 
